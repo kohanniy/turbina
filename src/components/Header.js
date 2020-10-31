@@ -6,12 +6,14 @@ import './header.css';
 const Header = function() {
   return (
     <div className="header">
-      <img src={logo} alt="Логотип" className="header__logo"/>
+      <a href="https://localhost:3000" className="header__logo-link">
+        <img src={logo} alt="Логотип" className="header__logo"/>
+      </a>
       <div className="header__links">
-        <a href="#" className="header__link">Яндекс.Музыка ↗</a>
-        <a href="#" className="header__link">Spotify ↗</a>
-        <a href="#" className="header__link">Apple Music ↗</a>
-        <a href="#" className="header__link">VK Music ↗</a>
+        <a href="https://localhost:3000" className="header__link">Яндекс.Музыка ↗</a>
+        <a href="https://localhost:3000" className="header__link">Spotify ↗</a>
+        <a href="https://localhost:3000" className="header__link">Apple Music ↗</a>
+        <a href="https://localhost:3000" className="header__link">VK Music ↗</a>
       </div>
     </div>
   );
