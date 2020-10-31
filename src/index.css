@@ -1,1 +1,19 @@
 @import url('./vendor/inter/inter.css');
+
+.page {
+    margin: 0;
+}
+
+.page__background {
+    margin: 0;
+    position: fixed;
+    z-index: 1;
+    height: 100vh;
+    width: 100vw;
+    background: url("./images/background.jpg") no-repeat center center;
+    background-size: 100% 100%;
+}
+
+.page__component {
+    margin: 0;
+}
