@@ -1,1 +1,18 @@
-@import url('./vendor/inter');
+@import url('./vendor/inter/inter.css');
+
+.page {
+
+}
+
+.page__background {
+    width: 100vw;
+    height: 100vh;
+}
+
+.page__component {
+    max-width: 1280px;
+}
+
+.main {
+
+}
