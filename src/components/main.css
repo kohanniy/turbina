@@ -1,0 +1,12 @@
+.main {
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__image {
+    width: 860px;
+    height: 272px;
+}
