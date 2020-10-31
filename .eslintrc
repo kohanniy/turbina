@@ -1,0 +1,23 @@
+{
+  "extends": [
+    "react-app",
+    "prettier",
+    "plugin:react/recommended"
+  ],
+  "rules": {
+    "no-console": 0,
+    "func-style": [2, "expression", { "allowArrowFunctions": true }],
+    "no-implied-eval": 1,
+    "jsx-quotes": [
+      1,
+      "prefer-double"
+    ]
+  },
+  "plugins": [
+    "prettier"
+  ],
+  "ecmaFeatures": {
+    "unicodeCodePointEscapes": true,
+    "jsx": true
+  }
+}
