@@ -1,0 +1,9 @@
+.form__title {
+  font-family: Inter, Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 36px;
+  color: #000000;
+  margin: 0 0 80px;
+}

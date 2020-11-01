@@ -1,0 +1,19 @@
+@import url(./__container/form__container.css);
+@import url(./__offer/__offer.css);
+@import url(./__offer-container/form__offer-container.css);
+@import url(./__offer-text/form__offer-text.css);
+@import url(./__input/form__input.css);
+@import url(./__poems/form__poems.css);
+@import url(./__submit/form__submit.css);
+@import url(./__title/form__title.css);
+@import url(./__offer-link/form__offer-link.css);
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  margin: 0;
+  padding: 100px 58px 86px;
+  font-family: Inter, Helvetica, Arial, sans-serif;
+  color: #000000;
+}

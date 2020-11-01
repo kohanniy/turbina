@@ -1,4 +1,5 @@
 @import url('./vendor/inter/inter.css');
+@import url('./blocks/form/form.css');
 
 .page {
     margin: 0;
