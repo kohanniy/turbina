@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from "./components/App";
+import Form from './components/Form'
 
 
 ReactDOM.render(
   <React.StrictMode>
      { /* Вставьте сюда ваш блок, который вы верстаете */ }
      {/*<Header />*/}
-     <App />
+     <Form />
   </React.StrictMode>,
   document.getElementById('root')
 );
