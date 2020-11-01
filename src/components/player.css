@@ -8,23 +8,49 @@
     grid-row-gap: 12px;
     grid-template-columns: 1fr 1146px 1fr;
     transition: margin-top .2s ease-in-out;
-    grid-template-areas: 'button info more'
-                          'button timeline more';
+    grid-template-areas: 'play info more'
+                          'play timeline more';
 }
 
 .player__songs_active {
     margin-top: 40px;
+    grid-template-columns: 1fr 976px 1fr 1fr;
+    grid-template-areas: 'play info switch more'
+                          'play timeline switch more';
 }
 
-.player__button {
-    width: 32px;
-    height: 28px;
-    align-self: flex-start;
-    grid-area: button;
+.player__switch-button {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+
+    grid-area: switch;
+    width: 147px;
+    height: 40px;
+    background: none;
+    outline: none;
+    border-radius: 30px;
+    border: 2px solid #FFFFFF;
+    animation: buttonLoad .3s forwards linear;
     transition: opacity .2s ease-in;
 }
 
-.player__button:hover {
+.player__switch-button:hover {
+    cursor: pointer;
+    opacity: .7;
+}
+
+.player__play-button {
+    grid-area: play;
+    width: 32px;
+    height: 28px;
+    align-self: flex-start;
+    transition: opacity .2s ease-in;
+}
+
+.player__play-button:hover {
     cursor: pointer;
     opacity: .7;
 }
@@ -66,4 +92,13 @@
     font-weight: 500;
     font-size: 22px;
     line-height: 27px;
+}
+
+@keyframes buttonLoad {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

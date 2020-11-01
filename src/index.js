@@ -14,7 +14,7 @@ ReactDOM.render(
       <MainText />
       <Player />
     </div>
-    <Footer />
+    {/*<Footer />*/}
   </React.StrictMode>,
   document.getElementById('root')
 );
