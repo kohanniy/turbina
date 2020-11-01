@@ -1,3 +1,69 @@
 .player {
+    font-family: 'Inter', 'Arial', sans-serif;
+
     width: 100%;
+    display: grid;
+    margin-top: 180px;
+    grid-column-gap: 20px;
+    grid-row-gap: 12px;
+    grid-template-columns: 1fr 1146px 1fr;
+    transition: margin-top .2s ease-in-out;
+    grid-template-areas: 'button info more'
+                          'button timeline more';
+}
+
+.player__songs_active {
+    margin-top: 40px;
+}
+
+.player__button {
+    width: 32px;
+    height: 28px;
+    align-self: flex-start;
+    grid-area: button;
+    transition: opacity .2s ease-in;
+}
+
+.player__button:hover {
+    cursor: pointer;
+    opacity: .7;
+}
+
+.player__timeline {
+    grid-area: timeline;
+    width: 100%;
+    height: 3px;background-color: #FFFFFF;
+}
+
+.player__more-button {
+    grid-area: more;
+    transition: opacity .2s ease-in;
+}
+
+.player__more-button:hover {
+    cursor: pointer;
+    opacity: .7;
+}
+
+.player__info {
+    grid-area: info;
+    display: flex;
+    justify-content: space-between;
+}
+
+.player__song-title {
+    margin: 0;
+    color: #FFFFFF;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+}
+
+.player__time {
+    color: #FFFFFF;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
 }

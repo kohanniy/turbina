@@ -3,15 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 import Header from './components/Header';
-import Main from './components/Main';
+import MainText from './components/MainText';
 import Player from './components/Player'
 
 ReactDOM.render(
   <React.StrictMode>
-     { /* Вставьте сюда ваш блок, который вы верстаете */ }
-     <Header />
-     <Main />
-     <Player />
+    <div className="main">
+      <Header />
+      <MainText />
+      <Player />
+    </div>
   </React.StrictMode>,
   document.getElementById('root')
 );

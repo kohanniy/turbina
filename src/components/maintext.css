@@ -1,4 +1,4 @@
-.main {
+.text {
     width: 100%;
     margin-top: 40px;
     display: flex;
@@ -6,7 +6,7 @@
     align-items: center;
 }
 
-.main__image {
+.text__image {
     width: 860px;
     height: 272px;
 }

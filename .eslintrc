@@ -8,6 +8,7 @@
     "no-console": 0,
     "func-style": [2, "expression", { "allowArrowFunctions": true }],
     "no-implied-eval": 1,
+    "react/prop-types": 0,
     "jsx-quotes": [
       1,
       "prefer-double"
