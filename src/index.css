@@ -24,3 +24,10 @@
     box-sizing: border-box;
     padding: 20px;
 }
+
+.page__info {
+  width: 100%;
+  max-width: 1260px;
+  min-width: 310px;
+  margin: 0 auto;
+}
