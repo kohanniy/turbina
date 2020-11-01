@@ -1,0 +1,6 @@
+.player__songs_active {
+    margin-top: 40px;
+    grid-template-columns: 1fr 976px 1fr 1fr;
+    grid-template-areas: 'play info switch more'
+                          'play timeline switch more';
+}

@@ -1,0 +1,8 @@
+.page__info {
+  width: 100%;
+  max-width: 1260px;
+  min-width: 310px;
+  margin: 12px auto 0;
+  background: #fff;
+  border-radius: 10px;
+}

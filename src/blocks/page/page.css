@@ -1,0 +1,8 @@
+@import url('./__background/page__background.css');
+@import url('./__component/page__component.css');
+@import url('./__info/page__info.css');
+@import url('./__main/page__main.css');
+
+.page {
+    margin: 0;
+}

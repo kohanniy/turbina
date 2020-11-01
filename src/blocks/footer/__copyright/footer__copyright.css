@@ -1,13 +1,5 @@
-.footer {
-    box-sizing: border-box;
-    padding: 35px 35px 45px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}
-
 .footer__copyright {
     justify-self: flex-start;
-    font-family: 'Inter', 'Arial', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;

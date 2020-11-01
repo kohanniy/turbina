@@ -1,12 +1,9 @@
+@import url('./__image/text__image.css');
+
 .text {
     width: 100%;
     margin-top: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.text__image {
-    width: 860px;
-    height: 272px;
 }

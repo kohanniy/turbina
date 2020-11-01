@@ -36,13 +36,13 @@
     ]
   },
   "devDependencies": {
+    "create-by-css": "github:tadatuta/bem-tools-create-by-css",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.5",
     "husky": "^4.3.0",
     "lint-staged": "^10.5.1",
-    "prettier": "^2.1.2",
-    "prop-types": "^15.7.2"
+    "prettier": "^2.1.2"
   },
   "lint-staged": {
     "*.{js, jsx}": [

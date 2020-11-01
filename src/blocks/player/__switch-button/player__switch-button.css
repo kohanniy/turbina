@@ -1,0 +1,22 @@
+.player__switch-button {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+
+    grid-area: switch;
+    width: 147px;
+    height: 40px;
+    background: none;
+    outline: none;
+    border-radius: 30px;
+    border: 2px solid #FFFFFF;
+    animation: buttonLoad .3s forwards linear;
+    transition: opacity .2s ease-in;
+}
+
+.player__switch-button:hover {
+    cursor: pointer;
+    opacity: .7;
+}

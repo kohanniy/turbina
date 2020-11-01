@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import SectionsWrapper from './components/SectionsWrapper';
 
 import Header from './components/Header';
 import MainText from './components/MainText';
@@ -9,12 +10,13 @@ import Footer from './components/Footer'
 
 ReactDOM.render(
   <React.StrictMode>
-    <div className="main">
+    <div className="page__main">
       <Header />
       <MainText />
       <Player />
     </div>
-    {/*<Footer />*/}
+    <SectionsWrapper />
+    <Footer />
   </React.StrictMode>,
   document.getElementById('root')
 );

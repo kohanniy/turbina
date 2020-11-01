@@ -1,7 +1,5 @@
 import React from 'react';
 
-import './songs.css';
-
 const Songs = function(props) {
   return (
     <div className={`songs ${props.isDisabled ? 'songs_disabled' : ''} ${props.isOpened ? 'songs_active' : ''}`}>

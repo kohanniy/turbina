@@ -1,0 +1,12 @@
+.player__play-button {
+    grid-area: play;
+    width: 32px;
+    height: 28px;
+    align-self: flex-start;
+    transition: opacity .2s ease-in;
+}
+
+.player__play-button:hover {
+    cursor: pointer;
+    opacity: .7;
+}

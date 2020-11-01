@@ -5,7 +5,6 @@ import pauseImage from '../images/Pause.svg'
 import moreImage from '../images/more.svg'
 import closeMoreImage from '../images/closemore.svg'
 
-import './player.css'
 import Songs from './Songs'
 
 const Player = function() {

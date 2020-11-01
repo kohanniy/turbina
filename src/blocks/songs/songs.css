@@ -1,3 +1,5 @@
+@import url('./__list/songs__list.css');
+
 .songs {
     width: 1140px;
     overflow-y: scroll;
@@ -10,39 +12,6 @@
     opacity: 0;
     visibility: hidden;
     transition:visibility 0.3s linear, opacity 0.3s linear;
-}
-
-.songs_disabled {
-    display: none;
-}
-
-.songs_active {
-    visibility: visible;
-    opacity: 1;
-}
-
-.songs__list {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-.song {
-    margin-top: 15px;
-}
-
-.song:first-of-type {
-    margin-top: 0;
-}
-
-.song__title {
-    font-family: 'Inter', 'Arial', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 27px;
-    color: #FFFFFF;
-    margin: 0;
 }
 
 .songs::-webkit-scrollbar {

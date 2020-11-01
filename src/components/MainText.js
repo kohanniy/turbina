@@ -2,8 +2,6 @@ import React from 'react';
 
 import MainImage from '../images/MainImage.svg';
 
-import './maintext.css';
-
 const MainText = function() {
   return (
     <div className="text">

@@ -1,0 +1,9 @@
+@import url('./__title/song__title.css');
+
+.song {
+    margin-top: 15px;
+}
+
+.song:first-of-type {
+    margin-top: 0;
+}

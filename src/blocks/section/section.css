@@ -1,0 +1,13 @@
+@import url('./__item/section__item.css');
+@import url('./__list/section__list.css');
+@import url('./__text/section__text.css');
+@import url('./__title/section__title.css');
+@import url('./__form/section__form.css');
+
+.section {
+  width: 57%;
+  max-width: 716px;
+  display: flex;
+  flex-direction: column;
+  padding: 4px 58px;
+}
