@@ -1,5 +1,6 @@
 import React from 'react';
 import Section from './Section'
+import Form from './Form'
 
 const SectionsWrapper = function() {
   return (
@@ -33,7 +34,7 @@ const SectionsWrapper = function() {
       </Section>
       <Section title="Форма" name="form">
         <>
-          {/* Тут форма */}
+          <Form/>
         </>
       </Section>
     </div>
