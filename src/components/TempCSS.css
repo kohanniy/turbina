@@ -1,0 +1,26 @@
+.song__text {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.song__string {
+    margin-top: 2px;
+}
+
+.song__string:first-of-type {
+    margin-top: 0px;
+}
+
+.song__string-text {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.song__string-skip {
+    margin: 0;
+    height: 16px;
+}
