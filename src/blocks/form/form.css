@@ -7,6 +7,7 @@
 @import url(./__submit/form__submit.css);
 @import url(./__title/form__title.css);
 @import url(./__offer-link/form__offer-link.css);
+@import url(./__offer-label/form__offer-label.css);
 
 .form {
   display: flex;

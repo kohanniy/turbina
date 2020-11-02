@@ -58,7 +58,8 @@ const Form = function() {
         <input onChange={handleInputChange} value={phoneInput} className="form__input" type="tel" name="phone" minLength="3" placeholder="Телефон" />
         <textarea onChange={handleInputChange} value={poemsInput} className="form__poems" form="form" name="poems" minLength="3" placeholder="Стихи" />
         <div className="form__offer-container">
-          <input onChange={handleInputChange} checked={offerRadioInput} name="offer" className="form__offer" type="checkbox"/>
+          <input onChange={handleInputChange} checked={offerRadioInput} id="offer" name="offer" className="form__offer" type="checkbox"/>
+          <label htmlFor="offer" className="form__offer-label" />
           <p className="form__offer-text">Согласен с <a className="form__offer-link" href="../images/oferta.pdf">офертой</a></p>
         </div>
       </form>
