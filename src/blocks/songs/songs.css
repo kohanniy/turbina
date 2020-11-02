@@ -5,7 +5,7 @@
     overflow-y: scroll;
     height: 110px;
     grid-template-columns: 98% 2%;
-    margin: 35px auto 0;
+    margin: 35px auto 28px;
     display: grid;
     left: 0;
     bottom: 0;
