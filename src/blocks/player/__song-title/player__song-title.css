@@ -1,16 +1,40 @@
 .player__song-title {
     margin: 0;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    align-self: flex-start;
+}
+
+.player__song-title span {
+    display: inline-block;
     color: #FFFFFF;
+    font-size: 22px;
     font-style: normal;
     font-weight: 500;
-    font-size: 22px;
     line-height: 27px;
 }
 
-@media screen and (max-width: 436px) {
-  .player__song-title {
-    font-size: 14px;
-    line-height: 19px;
+@media screen and (max-width: 800px) {
+    .player__song-title {
+        width: 85%;
+    }
 
+    .player__song-title span {
+        padding-left: 100%;
+        animation: marquee 5s infinite linear;
+    }
+
+    @keyframes marquee{
+        0%{transform: translate(0, 0);}
+        100%{transform: translate(-100%, 0)}
+    }
+}
+
+@media screen and (max-width: 436px) {
+      .player__song-title {
+          width: 80%;
+          font-size: 14px;
+          line-height: 19px;
   }
 }

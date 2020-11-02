@@ -108,7 +108,7 @@ const Player = function() {
         {playing ? <img onClick={handlePlayClick} className="player__play-button" src={pauseImage} alt="Пауза" /> :
           <img onClick={handlePlayClick} className="player__play-button" src={playImage} alt="Воспроизведение" />}
         <div className="player__info">
-          <p className="player__song-title">{ currentSong.title }</p>
+          <div className="player__song-title"><span>{ currentSong.title }</span></div>
           <span className="player__time">{currentSeconds ? `${currentMinutes}:${currentSeconds}` : '00:00'}</span>
         </div>
         <input onInput={handleTimelineInput} onChange={handleTimelineChange} className="player__timeline" type="range" name="time" min="0" max={Math.floor(audioFile.duration).toString()} value={audioFile.currentTime}/>
