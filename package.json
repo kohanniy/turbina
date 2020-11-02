@@ -7,7 +7,10 @@
     "@testing-library/user-event": "^12.1.10",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-scripts": "4.0.0"
+    "react-player": "^2.6.2",
+    "react-scripts": "4.0.0",
+    "web-audio-api": "^0.2.2",
+    "zenscroll": "^4.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -41,6 +44,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.5",
     "husky": "^4.3.0",
+    "jquery": "^3.5.1",
     "lint-staged": "^10.5.1",
     "prettier": "^2.1.2"
   },
