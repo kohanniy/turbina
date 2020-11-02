@@ -15,8 +15,8 @@ ReactDOM.render(
       <MainText />
       <Player />
     </div>
-      <SectionsWrapper />
-   {/* <Footer /> */}
+    <SectionsWrapper />
+    <Footer />
   </React.StrictMode>,
   document.getElementById('root')
 );

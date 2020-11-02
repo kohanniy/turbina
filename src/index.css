@@ -10,3 +10,29 @@
 @import url('./blocks/text/text.css');
 @import url('./blocks/player/player.css');
 @import url('./blocks/player/__songs/_active/player__songs_active.css');
+@import url('./blocks/form/form.css');
+
+.page {
+    margin: 0;
+}
+
+.page__background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 100vh;
+    width: 100vw;
+    background: url("./images/background.jpg") no-repeat center center;
+    background-size: 100% 100%;
+}
+
+.page__component {
+    position: relative;
+    z-index: 2;
+    max-width: 1280px;
+    min-width: 320px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 20px;
+}
