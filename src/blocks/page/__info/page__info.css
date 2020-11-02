@@ -1,8 +1,14 @@
 .page__info {
-  width: 100%;
+  width: calc(100% - 22px);
   max-width: 1260px;
   min-width: 310px;
-  margin: 12px auto 0;
+  margin: 20px auto 0;
+  padding: 110px 50px;
   background: #fff;
   border-radius: 10px;
+
+  box-sizing: border-box;
+
+  display: grid;
+  grid-template-columns: 70%;
 }

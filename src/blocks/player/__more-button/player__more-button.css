@@ -1,9 +1,16 @@
 .player__more-button {
     grid-area: more;
     transition: opacity .2s ease-in;
+    width: 24px;
 }
 
 .player__more-button:hover {
     cursor: pointer;
     opacity: .7;
+}
+
+@media screen and (max-width: 436px) {
+  .player__more-button {
+    width: 16px;
+  }
 }

@@ -1,4 +1,11 @@
 .text__image {
-    width: 860px;
-    height: 272px;
+    width: 69%;
+    margin-left: 14%;
+}
+
+@media screen and (max-width: 768px) {
+  .text__image {
+    width: 95%;
+    margin-left: 0;
+  }
 }

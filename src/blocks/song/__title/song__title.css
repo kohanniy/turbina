@@ -6,3 +6,10 @@
     color: #FFFFFF;
     margin: 0;
 }
+
+@media screen and (max-width: 436px) {
+  .song__title {
+    font-size: 14px;
+    line-height: 19px;
+  }
+}

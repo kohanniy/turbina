@@ -1,5 +1,11 @@
 .section__text {
-  font-size: 18px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
   line-height: 22px;
-  margin: 30px 0 0;
+  margin-top: 15px;
+}
+
+.section__text:first-of-type {
+  margin-top: 40px;
 }

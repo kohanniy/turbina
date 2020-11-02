@@ -24,3 +24,13 @@
     margin: 0;
     height: 16px;
 }
+
+.form__description {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+
+}
