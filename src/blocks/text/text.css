@@ -2,8 +2,15 @@
 
 .text {
     width: 100%;
-    margin-top: 40px;
+    margin-top: 28px;
     display: flex;
+    /* justify-content: center;
+    align-items: center; */
+}
+
+@media screen and (max-width: 436px) {
+  .text {
+    margin-top: 92px;
     justify-content: center;
-    align-items: center;
+  }
 }

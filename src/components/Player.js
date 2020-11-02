@@ -39,7 +39,7 @@ const Player = function() {
           <p className="player__song-title">Контур — Хадн Дадн feat. Варя Карпова и Федя Быстров</p>
           <span className="player__time">0:24</span>
         </div>
-        <div className="player__timeline"/>
+        <input className="player__timeline" type="range" id="volume" name="volume" min="0" max="11" />
         {isOpenedSongList ? <button onClick={handleSwitchClick} className="player__switch-button">{isReleasesActive ? 'Релизы' : 'Текст песни'}</button> : <></>}
         <img alt="Подробнее" src={isOpenedSongList ? closeMoreImage : moreImage} className="player__more-button" onClick={handleMoreClick}/>
       </div>

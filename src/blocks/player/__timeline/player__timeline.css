@@ -1,5 +1,6 @@
 .player__timeline {
     grid-area: timeline;
     width: 100%;
-    height: 3px;background-color: #FFFFFF;
+    height: 3px;
+    background-color: #FFFFFF;
 }

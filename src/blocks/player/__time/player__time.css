@@ -5,3 +5,10 @@
     font-size: 22px;
     line-height: 27px;
 }
+
+@media screen and (max-width: 436px) {
+  .player__time {
+    font-size: 14px;
+    line-height: 19px;
+  }
+}

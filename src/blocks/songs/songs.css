@@ -1,11 +1,11 @@
 @import url('./__list/songs__list.css');
 
 .songs {
-    width: 1140px;
+    width: 92%;
     overflow-y: scroll;
     height: 110px;
     grid-template-columns: 98% 2%;
-    margin: 35px auto 28px;
+    margin: 35px auto 40px;
     display: grid;
     left: 0;
     bottom: 0;
@@ -26,4 +26,10 @@
 .songs::-webkit-scrollbar-track {
     border-radius: 0;
     background-color: rgba(255, 255, 255, .1);
+}
+
+@media screen and (max-width: 436px) {
+  .songs {
+    width: 75%;
+  }
 }
