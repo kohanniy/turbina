@@ -5,4 +5,28 @@
   font-size: 50px;
   line-height: 61px;
   color: #000000;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+@media screen and (max-width: 1024px) {
+  .section__title {
+    font-size: 46px;
+    line-height: 56px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .section__title {
+    font-size: 42px;
+    line-height: 51px;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .section__title {
+    font-size: 32px;
+    line-height: 39px;
+    margin-bottom: 30px;
+  }
 }

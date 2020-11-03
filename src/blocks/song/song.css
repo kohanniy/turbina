@@ -1,9 +1,15 @@
 @import url('./__title/song__title.css');
 
 .song {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .song:first-of-type {
     margin-top: 0;
+}
+
+@media screen and (max-width: 426px) {
+  .song {
+    margin-top: 10px;
+  }
 }

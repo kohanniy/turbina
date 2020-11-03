@@ -8,22 +8,41 @@
 @import url('./__switch-button/player__switch-button.css');
 
 .player {
-    width: 100%;
-    display: grid;
-    margin-top: 207px;
-    grid-column-gap: 18px;
-    grid-row-gap: 11px;
-    grid-template-columns: 32px 1fr 24px;
-    align-items: center;
-    transition: margin-top .2s ease-in-out;
-    grid-template-areas: 'play info more'
-                          'play timeline more';
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 10px;
+  display: grid;
+  margin-top: 210px;
+  grid-column-gap: 20px;
+  grid-row-gap: 12px;
+  grid-template-columns: 20px 1fr 24px;
+  align-items: center;
+  transition: margin-top .2s ease-in-out;
+  grid-template-areas: 'play info more'
+                        '. timeline .';
 }
 
-@media screen and (max-width: 436px) {
+@media screen and (max-width: 1024px) {
   .player {
-    grid-template-columns: 18px 1fr 16px;
-    grid-column-gap: 12px;
+    margin-top: 182px;
+    grid-template-columns: 18px 1fr 24px;
+    grid-row-gap: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .player {
+    margin-top: 353px;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .player {
+    margin-top: 249px;
+    grid-template-columns: 16px 1fr 16px;
+    grid-column-gap: 7px;
     grid-row-gap: 9px;
+    padding-left: 0;
+    padding-right: 0;
   }
 }

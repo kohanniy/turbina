@@ -3,14 +3,20 @@
     color: #FFFFFF;
     font-style: normal;
     font-weight: 500;
-    font-size: 22px;
-    line-height: 27px;
+    font-size: 20px;
+    line-height: 24px;
 }
 
-@media screen and (max-width: 436px) {
+@media screen and (max-width: 1024px) {
+  .player__song-title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+@media screen and (max-width: 426px) {
   .player__song-title {
     font-size: 14px;
     line-height: 19px;
-
   }
 }

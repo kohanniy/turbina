@@ -1,11 +1,21 @@
 .text__image {
-    width: 69%;
-    margin-left: 14%;
+  width: 720px;
+}
+
+@media screen and (max-width: 1024px) {
+  .text__image {
+    width: 600px;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .text__image {
-    width: 95%;
-    margin-left: 0;
+    width: 81%;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .text__image {
+    width: 270px;
   }
 }

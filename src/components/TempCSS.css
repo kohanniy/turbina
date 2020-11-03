@@ -5,19 +5,20 @@
 }
 
 .song__string {
-    margin-top: 2px;
+  margin-top: 2px;
 }
 
 .song__string:first-of-type {
-    margin-top: 0px;
+  margin-top: 0px;
 }
 
 .song__string-text {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22px;
-    color: #FFFFFF;
-    margin: 0;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 27px;
+  color: #fff;
+  margin: 0;
 }
 
 .song__string-skip {
@@ -34,3 +35,18 @@
     margin-bottom: 60px;
 
 }
+
+@media screen and (max-width: 1024px) {
+  .song__string-text {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .song__string-text {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+

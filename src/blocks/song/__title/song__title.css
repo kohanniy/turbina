@@ -1,15 +1,27 @@
 .song__title {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 27px;
-    color: #FFFFFF;
-    margin: 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #FFFFFF;
+  margin: 0;
 }
 
-@media screen and (max-width: 436px) {
+.song__title:hover {
+  font-style: italic;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
   .song__title {
-    font-size: 14px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .song__title {
+    font-size: 12px;
     line-height: 19px;
   }
 }

@@ -1,11 +1,29 @@
 .section__text {
+  margin: 0;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
   line-height: 22px;
-  margin-top: 15px;
 }
 
-.section__text:first-of-type {
-  margin-top: 40px;
+.section__text + .section__text {
+  margin-top: 29px;
+}
+
+@media screen and (max-width: 1024px) {
+  .section__text {
+    font-size: 15px;
+    line-height: 22px;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .section__text {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .section__text + .section__text {
+    margin-top: 21px;
+  }
 }

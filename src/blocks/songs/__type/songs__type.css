@@ -1,22 +1,24 @@
-.player__time {
-  color: #FFFFFF;
-  font-style: normal;
+.songs__type {
+  margin: 0;
+  font-style: italic;
   font-weight: normal;
   font-size: 20px;
   line-height: 24px;
+  color: #FFFFFF;
+  margin-bottom: 16px;
 }
 
 @media screen and (max-width: 1024px) {
-  .player__time {
+  .songs__type {
     font-size: 18px;
     line-height: 22px;
+    margin-bottom: 15px;
   }
 }
 
 @media screen and (max-width: 426px) {
-  .player__time {
+  .songs__type {
     font-size: 14px;
     line-height: 19px;
-    font-weight: 500;
   }
 }

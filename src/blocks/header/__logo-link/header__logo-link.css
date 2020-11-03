@@ -3,9 +3,16 @@
     height: 50px;
 }
 
-@media screen and (max-width: 436px) {
+@media screen and (max-width: 1024px) {
   .header__logo-link {
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .header__logo-link {
+    width: 24px;
+    height: 24px;
   }
 }

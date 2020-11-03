@@ -48,27 +48,22 @@ const Form = function() {
   }
 
   return (
-    <>
-      <p className="form__description">
-        Заполняя эту форму, вы становитесь частью проекта.
-      </p>
-      <div className="form">
-        <form className="form__container" id="form" onSubmit={handleSubmit}>
-          {/* В качестве значения укстанавливаете стейт, а в качестве обработчика изменения состояния */}
-          {/* устанавливаете функцию-обработчик */}
-          <input onChange={handleInputChange} value={nameInput} className="form__input" type="text" name="name" minLength="3" placeholder="Имя и фамилия автора" />
-          <input onChange={handleInputChange} value={emailInput} className="form__input" type="email" name="email" minLength="3" placeholder="Почта" />
-          <input onChange={handleInputChange} value={phoneInput} className="form__input" type="tel" name="phone" minLength="3" placeholder="Телефон" />
-          <textarea onChange={handleInputChange} value={poemsInput} className="form__poems" form="form" name="poems" minLength="3" placeholder="Стихи" />
-          <div className="form__offer-container">
-            <input onChange={handleInputChange} checked={offerRadioInput} id="offer" name="offer" className="form__offer" type="checkbox"/>
-            <label htmlFor="offer" className="form__offer-label" />
-            <p className="form__offer-text">Согласен с <a className="form__offer-link" href="../images/oferta.pdf">офертой</a></p>
-          </div>
-        </form>
-        <button className="form__submit" type="submit">Отправить</button>
-      </div>
-    </>
+    <div className="form">
+      <form className="form__container" id="form" onSubmit={handleSubmit}>
+        {/* В качестве значения укстанавливаете стейт, а в качестве обработчика изменения состояния */}
+        {/* устанавливаете функцию-обработчик */}
+        <input onChange={handleInputChange} value={nameInput} className="form__input" type="text" name="name" minLength="3" placeholder="Имя и фамилия автора" />
+        <input onChange={handleInputChange} value={emailInput} className="form__input" type="email" name="email" minLength="3" placeholder="Почта" />
+        <input onChange={handleInputChange} value={phoneInput} className="form__input" type="tel" name="phone" minLength="3" placeholder="Телефон" />
+        <textarea onChange={handleInputChange} value={poemsInput} className="form__poems" form="form" name="poems" minLength="3" placeholder="Стихи" />
+        <div className="form__offer-container">
+          <input onChange={handleInputChange} checked={offerRadioInput} id="offer" name="offer" className="form__offer" type="checkbox"/>
+          <label htmlFor="offer" className="form__offer-label" />
+          <p className="form__offer-text">Согласен с <a className="form__offer-link" href="../images/oferta.pdf">офертой</a></p>
+        </div>
+      </form>
+      <button className="form__submit" type="submit">Отправить</button>
+    </div>
   )
 }
 

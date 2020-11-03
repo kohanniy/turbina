@@ -1,3 +1,7 @@
 .section__item {
-  margin-bottom: 27px;
+  list-style: none;
+}
+
+.section__item + .section__item {
+  margin-top: 14px;
 }
