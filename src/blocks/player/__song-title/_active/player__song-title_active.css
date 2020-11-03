@@ -1,0 +1,32 @@
+/*.player__song-title_active {*/
+/*    display: inline-block;*/
+/*    color: #ffffff;*/
+/*    font-size: 22px;*/
+/*    font-style: normal;*/
+/*    font-weight: 500;*/
+/*    line-height: 27px;*/
+/*    padding-left: 100%;*/
+/*    animation: scroll 5s infinite linear;*/
+/*}*/
+
+/*@keyframes scroll{*/
+/*    0% { transform: translate(0, 0) }*/
+/*    100% { transform: translate(-100%, 0) }*/
+/*}*/
+
+.player__song-title_active {
+    display: inline-block;
+    color: #ffffff;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 27px;
+    white-space: nowrap;
+    animation: scroll 5s infinite linear alternate;
+}
+
+@keyframes scroll{
+    0% { text-indent: 80% }
+    100% { text-indent: -80% }
+}
+
