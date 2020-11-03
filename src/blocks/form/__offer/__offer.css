@@ -4,9 +4,9 @@
   display: none;
 }
 
-.form__offer:checked + label:before {
-  content: "\266A";
+.form__offer:checked {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+  background-color: black;
   font-size: 25px;
   color: #000000;
   text-align: center;

@@ -3,15 +3,12 @@ import React from 'react';
 import Api from '../utils/Api';
 
 const Form = function() {
-  // Создаем state переменные для каждого инпута
   const [nameInput, setNameInput] = React.useState('');
   const [emailInput, setEmailInput] = React.useState('');
   const [phoneInput, setPhoneInput] = React.useState('');
   const [poemsInput, setPoemsInput] = React.useState('');
   const [offerRadioInput, setOfferRadioInput] = React.useState(true);
 
-  // Тут я обрабатываю для всех инпутов сразу, но если у вас 1-2 инпута, можете создать
-  // фнкцию-обработчик для каждого инпута
   const handleInputChange = function(e) {
     const target = e.target;
     switch (target.name) {
@@ -21,7 +18,7 @@ const Form = function() {
       case 'email':
         setEmailInput(target.value);
         break;
-      case 'tel':
+      case 'phone':
         setPhoneInput(target.value);
         break;
       case 'poems':
@@ -54,8 +51,6 @@ const Form = function() {
       </p>
       <div className="form">
         <form className="form__container" id="form" onSubmit={handleSubmit}>
-          {/* В качестве значения укстанавливаете стейт, а в качестве обработчика изменения состояния */}
-          {/* устанавливаете функцию-обработчик */}
           <input onChange={handleInputChange} value={nameInput} className="form__input" type="text" name="name" minLength="3" placeholder="Имя и фамилия автора" />
           <input onChange={handleInputChange} value={emailInput} className="form__input" type="email" name="email" minLength="3" placeholder="Почта" />
           <input onChange={handleInputChange} value={phoneInput} className="form__input" type="tel" name="phone" minLength="3" placeholder="Телефон" />

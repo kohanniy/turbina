@@ -14,9 +14,39 @@
     border: 2px solid #FFFFFF;
     animation: buttonLoad .3s forwards linear;
     transition: all .2s ease-in;
+
+    transform: scaleX(0);
 }
 
 .player__switch-button:hover {
     cursor: pointer;
     opacity: .7;
+}
+
+.player__switch-enter-active {
+    animation: test1 .2s forwards;
+}
+
+.player__switch-enter-done {
+    transform: scaleX(1);
+}
+
+.player__switch-exit-active {
+    display: none;
+}
+
+.player__switch-exit-done {
+    transform: scaleX(0);
+    opacity: 0;
+}
+
+@keyframes test1 {
+    0% {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scaleX(1);
+    }
 }
