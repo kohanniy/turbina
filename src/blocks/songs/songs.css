@@ -60,9 +60,3 @@
         transform: scaleY(1);
     }
 }
-
-@media screen and (max-width: 436px) {
-  .songs {
-    width: 75%;
-  }
-}
