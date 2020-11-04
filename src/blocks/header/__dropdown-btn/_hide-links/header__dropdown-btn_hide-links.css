@@ -1,0 +1,9 @@
+.header__dropdown-btn_hide-links {
+  width: 29px;
+  background: url("../../../../images/close-icon.svg") no-repeat center center;
+}
+
+.header__dropdown-btn_hide-links span {
+  visibility: hidden;
+  opacity: 0;
+}

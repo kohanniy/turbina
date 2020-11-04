@@ -1,0 +1,23 @@
+.header__dropdown-btn {
+  border: 2px solid #fff;
+  outline: none;
+  box-sizing: border-box;
+  border-radius: 30px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: opacity .3s ease-in, width .3s linear;
+  width: 98px;
+  height: 29px;
+  overflow: hidden;
+  display: none;
+}
+
+.header__dropdown-btn:hover {
+  opacity: .7;
+}
+
+@media screen and (max-width: 426px) {
+  .header__dropdown-btn {
+    display: inline-block;
+  }
+}

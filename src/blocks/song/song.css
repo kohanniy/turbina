@@ -7,7 +7,7 @@
 }
 
 .song:first-of-type {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 @media screen and (max-width: 426px) {

@@ -102,10 +102,13 @@ const Player = function() {
         </CSSTransition>
         <img alt="Подробнее" src={moreSectionOpened ? closeMoreImage : moreImage} className="player__more-button"
              onClick={handleMoreClick} />
+        <CSSTransition in={moreSectionOpened} timeout={300} classNames="songs-animation" unmountOnExit={true} mountOnEnter={true} onEnter={(e) => setSongsActive(true)} onExit={(e) => setSongsActive(false)}>
+          <Songs song={currentSong.songText.split('\n')} isReleasesActive={isReleasesActive} />
+        </CSSTransition>
       </div>
-      <CSSTransition in={moreSectionOpened} timeout={300} classNames="songs-animation" unmountOnExit={true} mountOnEnter={true} onEnter={(e) => setSongsActive(true)} onExit={(e) => setSongsActive(false)}>
+      {/* <CSSTransition in={moreSectionOpened} timeout={300} classNames="songs-animation" unmountOnExit={true} mountOnEnter={true} onEnter={(e) => setSongsActive(true)} onExit={(e) => setSongsActive(false)}>
         <Songs song={currentSong.songText.split('\n')} isReleasesActive={isReleasesActive} />
-      </CSSTransition>
+      </CSSTransition> */}
     </>
   )
 }
