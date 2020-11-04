@@ -1,14 +1,13 @@
 .player__play-button {
-    grid-area: play;
-    width: 20px;
-    height: 16px;
-    /* align-self: flex-start; */
-    transition: opacity .2s ease-in;
+  grid-area: play;
+  width: 20px;
+  height: 16px;
+  transition: opacity .2s ease-in;
 }
 
 .player__play-button:hover {
-    cursor: pointer;
-    opacity: .7;
+  cursor: pointer;
+  opacity: .7;
 }
 
 @media screen and (max-width: 1024px) {

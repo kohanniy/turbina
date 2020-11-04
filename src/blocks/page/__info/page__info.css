@@ -29,8 +29,7 @@
 
 @media screen and (max-width: 426px) {
   .page__info {
-    width: calc(100% - 10px);
+    width: 96%;
     padding: 80px 20px;
-    grid-template-columns: 100%;
   }
 }

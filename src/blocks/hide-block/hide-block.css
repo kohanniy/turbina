@@ -1,0 +1,4 @@
+.hide-block {
+  visibility: hidden;
+  opacity: 0;
+}

@@ -1,0 +1,15 @@
+.header__dropdown-btn_show-links {
+  font: inherit;
+  color: #fff;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  padding: 5px 14px;
+}
+
+.header__dropdown-btn_show-links span {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility .3s linear .2s, opacity .3s linear .2s;
+}

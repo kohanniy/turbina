@@ -1,13 +1,13 @@
 .player__more-button {
-    grid-area: more;
-    transition: opacity .2s ease-in;
-    width: 24px;
-    height: 24px;
+  grid-area: more;
+  transition: opacity .2s ease-in;
+  width: 24px;
+  height: 24px;
 }
 
 .player__more-button:hover {
-    cursor: pointer;
-    opacity: .7;
+  cursor: pointer;
+  opacity: .7;
 }
 
 @media screen and (max-width: 426px) {

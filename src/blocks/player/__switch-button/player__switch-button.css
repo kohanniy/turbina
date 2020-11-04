@@ -15,7 +15,7 @@
   border: 2px solid #FFFFFF;
   animation: buttonLoad .3s forwards linear;
   transition: all .2s ease-in;
-    transform: scaleX(0);
+  transform: scaleX(0);
 }
 
 .player__switch-button:hover {
@@ -39,7 +39,7 @@
     height: 31px;
     font-size: 12px;
     line-height: 15px;
-    margin-top: 11px;
+    margin-top: 12px;
   }
 }
 

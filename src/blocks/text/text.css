@@ -1,7 +1,6 @@
 @import url('./__image/text__image.css');
 
 .text {
-    width: 100%;
     margin-top: 98px;
     display: flex;
     justify-content: center;
@@ -21,6 +20,6 @@
 
 @media screen and (max-width: 426px) {
   .text {
-    margin-top: 95px;
+    margin-top: 127px;
   }
 }
