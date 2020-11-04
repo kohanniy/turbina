@@ -16,6 +16,7 @@
 
 .player__song-title_active {
     display: inline-block;
+    width: 100%;
     color: #ffffff;
     font-size: 22px;
     font-style: normal;
