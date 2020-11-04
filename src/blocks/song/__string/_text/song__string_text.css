@@ -1,0 +1,25 @@
+.song__string_text {
+    font-style: italic;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 27px;
+    color: #fff;
+    margin: 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .song__string_text {
+        font-size: 18px;
+        line-height: 26px;
+    }
+}
+
+@media screen and (max-width: 426px) {
+    .song__string_text {
+        font-size: 14px;
+        line-height: 20px;
+    }
+}
+
+
+

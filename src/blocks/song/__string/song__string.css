@@ -1,0 +1,10 @@
+@import url('./_skip/song__string_skip.css');
+@import url('./_text/song__string_text.css');
+
+.song__string {
+    margin-top: 2px;
+}
+
+.song__string:first-of-type {
+    margin-top: 0px;
+}

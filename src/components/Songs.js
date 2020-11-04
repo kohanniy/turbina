@@ -1,18 +1,16 @@
 import React from 'react';
 
-import TempCSS from './TempCSS.css';
-
 const Songs = function(props) {
   const createSongList = function() {
     const textArray = []
     props.song.forEach((string, index) => {
       textArray.push(string === '' ?
         <li key={index} className="song__string">
-          <div className="song__string-skip"/>
+          <div className="song__string_skip"/>
         </li>
         :
         <li key={index} className="song__string">
-          <p className="song__string-text">{string}</p>
+          <p className="song__string_text">{string}</p>
         </li>)
     })
     return textArray
