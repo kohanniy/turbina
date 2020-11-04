@@ -40,7 +40,7 @@
 }
 
 .songs-animation-enter-active {
-  animation: test .3s forwards;
+  animation: test .2s forwards;
 }
 
 .songs-animation-enter-done {
@@ -49,7 +49,7 @@
 }
 
 .songs-animation-exit-active {
-    animation: test .3s reverse;
+    animation: test .2s reverse;
 }
 
 .songs-animation-exit-done {

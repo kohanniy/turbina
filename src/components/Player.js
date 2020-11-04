@@ -97,12 +97,12 @@ const Player = function() {
         </div>
         <input onInput={handleTimelineInput} onChange={handleTimelineChange} className="player__timeline" type="range"
                name="time" min="0" max={Math.floor(audioFile.duration).toString()} value={audioFile.currentTime} />
-        <CSSTransition in={moreSectionOpened} timeout={300} classNames="player__switch" unmountOnExit={true} mountOnEnter={true}>
+        <CSSTransition in={moreSectionOpened} timeout={200} classNames="player__switch" unmountOnExit={true} mountOnEnter={true}>
           <button onClick={handleSwitchClick} className="player__switch-button">{isReleasesActive ? 'Текст песни' : 'Релизы'}</button>
         </CSSTransition>
         <img alt="Подробнее" src={moreSectionOpened ? closeMoreImage : moreImage} className="player__more-button"
              onClick={handleMoreClick} />
-        <CSSTransition in={moreSectionOpened} timeout={300} classNames="songs-animation" unmountOnExit={true} mountOnEnter={true} onEnter={(e) => setSongsActive(true)} onExit={(e) => setSongsActive(false)}>
+        <CSSTransition in={moreSectionOpened} timeout={200} classNames="songs-animation" unmountOnExit={true} mountOnEnter={true} onEnter={(e) => setSongsActive(true)} onExit={(e) => setSongsActive(false)}>
           <Songs song={currentSong.songText.split('\n')} isReleasesActive={isReleasesActive} />
         </CSSTransition>
       </div>
