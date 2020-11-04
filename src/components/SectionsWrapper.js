@@ -43,7 +43,7 @@ const SectionsWrapper = function() {
       <Section title="Форма." name="form">
         <>
           <p className="section__text">Заполняя эту форму, вы становитесь частью проекта.</p>
-          {/* <Form/> */}
+          {/* <Form/> нуждается в адаптиве */}
         </>
       </Section>
     </div>

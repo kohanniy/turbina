@@ -17,6 +17,13 @@
   .page__info {
     padding-top: 100px;
     padding-bottom: 100px;
+    grid-template-columns: 67%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .page__info {
+    grid-template-columns: 100%;
   }
 }
 

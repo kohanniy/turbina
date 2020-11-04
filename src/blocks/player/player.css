@@ -38,7 +38,7 @@
 
 @media screen and (max-width: 426px) {
   .player {
-    margin-top: 249px;
+    margin-top: 95px;
     grid-template-columns: 16px 1fr 16px;
     grid-column-gap: 7px;
     grid-row-gap: 9px;

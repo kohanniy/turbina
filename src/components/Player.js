@@ -114,10 +114,6 @@ const Player = function() {
         <input onInput={handleTimelineInput} onChange={handleTimelineChange} className="player__timeline" type="range" name="time" min="0" max={Math.floor(audioFile.duration).toString()} value={audioFile.currentTime}/>
         {isOpenedSongList ? <button onClick={handleSwitchClick} className="player__switch-button">{isReleasesActive ? 'Текст песни' : 'Релизы'}</button> : <></>}
         <img alt="Подробнее" src={isOpenedSongList ? closeMoreImage : moreImage} className="player__more-button" onClick={handleMoreClick}/>
-
-        {/* 1. Если посмотреть на макет, то раздел Songs должен быть такой же ширины, как полоса прокрутки песни и свитч-кнопка вместе, и должен стоять строго под ними. Пока Songs стоял снаружи дива, тяжело было рассчитывать ширину и ставить его строго под плеером. На одном разрешении совмещаешь, сжимаешь экран на 10-20 пикселей и все снова съезжает.
-
-        2. Из-за этого появился маленький баг при закрытии Songs. Ты сам увидишь, когда запустишь. Надеюсь, он решится с помощью jquery.*/}
         <Songs song={currentSong.songText.split('\n')} isReleasesActive={isReleasesActive} isOpened={isOpenedSongList} isDisabled={isDisabledSongList}/>
       </div>
 
