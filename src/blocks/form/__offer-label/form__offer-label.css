@@ -9,6 +9,10 @@
   transition: opacity .2s ease-in;
 }
 
+.form__offer-label:checked {
+  background-color: black;
+}
+
 .form__offer-label:hover {
   opacity: .6;
   cursor: pointer;

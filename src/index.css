@@ -5,9 +5,8 @@
 @import url('./blocks/section/section.css');
 @import url('./blocks/footer/footer.css');
 @import url('./blocks/song/song.css');
-@import url('./blocks/songs/_active/songs_active.css');
-@import url('./blocks/songs/_disabled/songs_disabled.css');
 @import url('./blocks/text/text.css');
 @import url('./blocks/player/player.css');
 @import url('./blocks/player/__songs/_active/player__songs_active.css');
 @import url('./blocks/form/form.css');
+

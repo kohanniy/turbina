@@ -6,8 +6,9 @@ import moreImage from '../images/more.svg'
 import closeMoreImage from '../images/closemore.svg'
 
 import grandson from '../music.mp3'
+import { CSSTransition } from 'react-transition-group';
 
-import Songs from './Songs';
+import Songs from './Songs'
 
 const songs = [{
   title: 'Blood // Water - Grandson',
@@ -26,13 +27,11 @@ const songs = [{
     'Money won\'t solve it\n What\'s your alibi?\n What\'s your alibi?\n What\'s your alibi?\n' +
     '\n What you gon\' do when there\'s blood in the, blood in the water?\n When there\'s blood in the water\n' +
     'When there\'s blood in the\n When there\'s blood in the water\n'
-}, {
-
-}];
+}, {}]
 
 const Player = function() {
   // Audio
-  const [audioFile] = React.useState(new Audio(songs[0].song));
+  const [audioFile, setAudioFile] = React.useState(new Audio(songs[0].song));
   const [playing, setPlaying] = React.useState(false);
   const [currentMinutes, setCurrentMinutes] = React.useState(0);
   const [currentSeconds, setCurrentSeconds] = React.useState(0);
@@ -40,20 +39,12 @@ const Player = function() {
 
 
   // Player.js
+  const [moreSectionOpened, openMoreSection] = React.useState(false);
+  const [songsActive, setSongsActive] = React.useState(false);
   const [isReleasesActive, setReleasesActive] = React.useState(false);
-  const [isOpenedSongList, setOpenedSongList] = React.useState(false);
-  const [isDisabledSongList, setDisabledSongList] = React.useState(true); // Создано для фикса резкого закрытия списка песен
 
   const handleMoreClick = function(e) {
-    if(isOpenedSongList) {
-      setOpenedSongList(false);
-      setTimeout(function() {
-        setDisabledSongList(true)
-      }, 300);
-    } else {
-      setDisabledSongList(false);
-      setOpenedSongList(true);
-    }
+    openMoreSection(!moreSectionOpened);
   }
 
   const handleSwitchClick = function(e) {
@@ -62,7 +53,7 @@ const Player = function() {
 
   React.useEffect(() => {
     audioFile.addEventListener('timeupdate', handleSongTimeUpdate);
-  });
+  }   );
 
   const handlePlayClick = function(e) {
     if (playing) {
@@ -75,48 +66,47 @@ const Player = function() {
   }
 
   const handleSongTimeUpdate = function(e) {
-      const mins = Math.floor(audioFile.currentTime / 60);
-      if (mins < 10) {
-        setCurrentMinutes(`0${mins}`);
-      } else {
-        setCurrentMinutes(mins);
-      }
-      const secs = Math.floor(audioFile.currentTime % 60);
-      if (secs < 10) {
-        setCurrentSeconds(`0${secs}`);
-      } else {
-        setCurrentSeconds(secs);
-      }
+    const minutes = Math.floor(audioFile.currentTime / 60);
+    const seconds = Math.floor(audioFile.currentTime % 60);
+
+    minutes < 10 ? setCurrentMinutes(`0${minutes}`) : setCurrentMinutes(minutes);
+    seconds < 10 ? setCurrentSeconds(`0${seconds}`) : setCurrentSeconds(seconds);
     changeProgressFill(document.querySelector('.player__timeline'));
   }
 
   const handleTimelineChange = function(e) {
-    audioFile.currentTime = e.target.value;
+    audioFile.currentTime = e.target.value
   }
 
   const handleTimelineInput = function(e) {
-    changeProgressFill(e.target);
+    changeProgressFill(e.target)
   }
 
   const changeProgressFill = function(target) {
-    target.style.background = `linear-gradient(to right, white 0%, white ${(target.value-target.min)/(target.max-target.min)*100}%, rgba(255, 255, 255, .3) ${(target.value-target.min)/(target.max-target.min)*100}%, rgba(255, 255, 255, .3) 100%)`
+    target.style.background = `linear-gradient(to right, white 0%, white ${(target.value - target.min) / (target.max - target.min) * 100}%, rgba(255, 255, 255, .3) ${(target.value - target.min) / (target.max - target.min) * 100}%, rgba(255, 255, 255, .3) 100%)`
   }
 
   return (
-
-      <div className={`player ${isOpenedSongList ? 'player__songs_active' : ''}`}>
+    <>
+      <div className={`player ${songsActive ? 'player__songs_active' : ''}`}>
         {playing ? <img onClick={handlePlayClick} className="player__play-button" src={pauseImage} alt="Пауза" /> :
           <img onClick={handlePlayClick} className="player__play-button" src={playImage} alt="Воспроизведение" />}
         <div className="player__info">
-          <p className="player__song-title">{ currentSong.title }</p>
+          <p className="player__song-title">{currentSong.title}</p>
           <span className="player__time">{currentSeconds ? `${currentMinutes}:${currentSeconds}` : '00:00'}</span>
         </div>
-        <input onInput={handleTimelineInput} onChange={handleTimelineChange} className="player__timeline" type="range" name="time" min="0" max={Math.floor(audioFile.duration).toString()} value={audioFile.currentTime}/>
-        {isOpenedSongList ? <button onClick={handleSwitchClick} className="player__switch-button">{isReleasesActive ? 'Текст песни' : 'Релизы'}</button> : <></>}
-        <img alt="Подробнее" src={isOpenedSongList ? closeMoreImage : moreImage} className="player__more-button" onClick={handleMoreClick}/>
-        <Songs song={currentSong.songText.split('\n')} isReleasesActive={isReleasesActive} isOpened={isOpenedSongList} isDisabled={isDisabledSongList}/>
+        <input onInput={handleTimelineInput} onChange={handleTimelineChange} className="player__timeline" type="range"
+               name="time" min="0" max={Math.floor(audioFile.duration).toString()} value={audioFile.currentTime} />
+        <CSSTransition in={moreSectionOpened} timeout={300} classNames="player__switch" unmountOnExit={true} mountOnEnter={true}>
+          <button onClick={handleSwitchClick} className="player__switch-button">{isReleasesActive ? 'Текст песни' : 'Релизы'}</button>
+        </CSSTransition>
+        <img alt="Подробнее" src={moreSectionOpened ? closeMoreImage : moreImage} className="player__more-button"
+             onClick={handleMoreClick} />
       </div>
-
+      <CSSTransition in={moreSectionOpened} timeout={300} classNames="songs-animation" unmountOnExit={true} mountOnEnter={true} onEnter={(e) => setSongsActive(true)} onExit={(e) => setSongsActive(false)}>
+        <Songs song={currentSong.songText.split('\n')} isReleasesActive={isReleasesActive} />
+      </CSSTransition>
+    </>
   )
 }
 

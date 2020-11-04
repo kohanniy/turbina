@@ -19,7 +19,7 @@ const Songs = function(props) {
   }
 
   return (
-    <div className={`songs ${props.isDisabled ? 'songs_disabled' : ''} ${props.isOpened ? 'songs_active' : ''}`}>
+    <div className={`songs`}>
       {props.isReleasesActive ?
         <div className="songs__wrapper">
           <p className="songs__type">Релизы:</p>

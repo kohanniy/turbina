@@ -7,7 +7,6 @@
   overflow-y: scroll;
   height: 110px;
   grid-template-columns: 98% 2%;
-  margin: 35px auto 10px;
   display: grid;
   left: 0;
   bottom: 0;
@@ -15,6 +14,8 @@
   visibility: hidden;
   transition:visibility 0.3s linear, opacity 0.3s linear;
   grid-area: songs;
+    transform: scaleY(0);
+    margin: 0 auto;
 }
 
 .songs::-webkit-scrollbar {
@@ -29,4 +30,42 @@
 .songs::-webkit-scrollbar-track {
   border-radius: 0;
   background-color: rgba(255, 255, 255, .1);
+}
+
+.songs-animation-enter-active {
+    animation: test .3s forwards;
+}
+
+.songs-animation-enter-done {
+    margin: 35px auto 40px;
+    transform: scaleY(1);
+}
+
+.songs-animation-exit-active {
+    animation: test .3s reverse;
+}
+
+.songs-animation-exit-done {
+    height: 0;
+}
+
+@keyframes test {
+    0% {
+        opacity: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        transform: scaleY(0);
+    }
+    100% {
+        opacity: 1;
+        margin-top: 35px;
+        margin-bottom: 40px;
+        transform: scaleY(1);
+    }
+}
+
+@media screen and (max-width: 436px) {
+  .songs {
+    width: 75%;
+  }
 }

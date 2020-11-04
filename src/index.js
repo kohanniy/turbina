@@ -9,7 +9,7 @@ import Player from './components/Player'
 import Footer from './components/Footer'
 
 ReactDOM.render(
-  <React.StrictMode>
+  <>
     <div className="page__main">
       <Header />
       <MainText />
@@ -17,6 +17,6 @@ ReactDOM.render(
     </div>
     <SectionsWrapper />
     <Footer />
-  </React.StrictMode>,
+  </>,
   document.getElementById('root')
 );
