@@ -17,4 +17,4 @@
    
 **Страница проекта на GitHub Pages**
 
-* [Ссылка на работу](https://muffincolor.github.io/turbina-react/.)
+* [Турбина](https://muffincolor.github.io/turbina-react/.)
