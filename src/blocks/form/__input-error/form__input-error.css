@@ -4,18 +4,17 @@
     font-size: 16px;
     line-height: 20px;
     color: #FF0000;
-    transition: opacity 1s ease-in;
 }
 
 .form__error-animation-enter-active {
-    animation: test 1s forwards;
+    animation: test .2s forwards;
 }
 
 .form__error-animation-enter-done {
 }
 
 .form__error-animation-exit-active {
-    animation: test 1s reverse;
+    animation: test .2s reverse;
 }
 
 .form__error-animation-exit-done {

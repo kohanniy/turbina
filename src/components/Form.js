@@ -4,25 +4,25 @@ import Api from '../utils/Api';
 import { CSSTransition } from 'react-transition-group';
 
 const Form = function() {
-  const [nameError, setNameError] = React.useState('');
-  const [mailError, setMailError] = React.useState('');
-  const [phoneError, setPhoneError] = React.useState('');
-  const [poemsError, setPoemsError] = React.useState('');
-  const [offerRadioError, setOfferRadioError] = React.useState('');
-  const [unknownError, setUnknownError] = React.useState('');
-  const [buttonsStatus, setButtonsStatus] = React.useState('');
+  const [nameError, setNameError] = React.useState(true);
+  const [mailError, setMailError] = React.useState(true);
+  const [phoneError, setPhoneError] = React.useState(true);
+  const [poemsError, setPoemsError] = React.useState(true);
+
+  const [isSubmitDisabled, setSubmitDisabled] = React.useState(true);
+  const [isFormSent, setFormSent] = React.useState(false);
 
   const [nameInput, setNameInput] = React.useState('');
-  const [emailInput, setEmailInput] = React.useState('');
+  const [mailInput, setMailInput] = React.useState('');
   const [phoneInput, setPhoneInput] = React.useState('');
   const [poemsInput, setPoemsInput] = React.useState('');
   const [offerRadioInput, setOfferRadioInput] = React.useState(false);
 
   const updateButtonStatus = function() {
-    if (nameError !== '' && mailError !== '' && phoneError !== '' && offerRadioError !== '' && poemsError !== '') {
-      setButtonsStatus(true);
+    if (offerRadioInput && nameError && mailError && phoneError && poemsError && nameInput !== '' && mailInput !== '' && phoneInput !== '' && poemsInput !== '') {
+      setSubmitDisabled(false);
     } else {
-      setButtonsStatus(false);
+      setSubmitDisabled(true);
     }
   }
 
@@ -35,47 +35,26 @@ const Form = function() {
     switch (target.name) {
       case 'name':
         setNameInput(target.value);
-        if(!e.target.validity.valid) {
-          setNameError(e.target.validationMessage);
-        } else {
-          setNameError('');
-        }
+        setNameError(target.validity.valid);
         updateButtonStatus();
         break;
       case 'email':
-        setEmailInput(target.value);
-        if(!e.target.validity.valid) {
-          setMailError(e.target.validationMessage);
-        } else {
-          setMailError('');
-        }
+        setMailInput(target.value);
+        setMailError(target.validity.valid);
         updateButtonStatus();
         break;
       case 'phone':
         setPhoneInput(target.value);
-        if(!e.target.validity.valid) {
-          setPhoneError(e.target.validationMessage);
-        } else {
-          setPhoneError('');
-        }
+        setPhoneError(target.validity.valid);
         updateButtonStatus();
         break;
       case 'poems':
         setPoemsInput(target.value);
-        if(!e.target.validity.valid) {
-          setPoemsError(e.target.validationMessage);
-        } else {
-          setPoemsError('');
-        }
+        setPoemsError(target.validity.valid);
         updateButtonStatus();
         break;
       case 'offer':
         setOfferRadioInput(!offerRadioInput);
-        if(!e.target.validity.valid) {
-          setOfferRadioError(e.target.validationMessage);
-        } else {
-          setOfferRadioError('');
-        }
         updateButtonStatus();
         break;
       default:
@@ -84,9 +63,11 @@ const Form = function() {
   }
 
   const handleSubmit = function(e) {
+    e.preventDefault();
+    setFormSent(true);
     Api.sendForm({
       name: nameInput,
-      email: emailInput,
+      email: mailInput,
       tel: phoneInput,
       poems: poemsInput
     })
@@ -101,33 +82,33 @@ const Form = function() {
         Заполняя эту форму, вы становитесь частью проекта.
       </p>
       <div className="form">
-        <form className="form__container" id="form" onSubmit={handleSubmit}>
-          <input onChange={handleInputChange} value={nameInput} minLength={4} maxLength={10} className={`form__input ${nameError !== '' ? 'form__input_error' : ''}`} type="text" name="name" placeholder="Имя и фамилия автора" />
-          <CSSTransition in={nameError !== ''} timeout={1000} classNames="form__error-animation">
-            <span className={`form__input-error`}>{`Текст`}</span>
+        <form className="form__container" onSubmit={handleSubmit}>
+          <input onChange={handleInputChange} value={nameInput} minLength={2} maxLength={50} required className={`form__input ${nameError ? '' : 'form__input_error'}`} type="text" name="name" placeholder="Имя и фамилия автора" />
+          <CSSTransition in={!nameError} timeout={200} classNames="form__error-animation" unmountOnExit={true} mountOnEnter={true}>
+            <span className={`form__input-error`}>{`Ошибка`}</span>
           </CSSTransition>
-          <input onChange={handleInputChange} value={emailInput} className={`form__input ${mailError !== '' ? 'form__input_error' : ''}`} type="email" name="email" minLength="3" placeholder="Почта" />
-          <CSSTransition in={mailError !== ''} timeout={1000} classNames="form__error-animation" unmountOnExit={true} mountOnEnter={true}>
-            <span className={`form__input-error`}>{mailError}</span>
+          <input onChange={handleInputChange} value={mailInput} minLength={2} maxLength={60} required className={`form__input ${mailError ? '' : 'form__input_error'}`} type="email" name="email" placeholder="Почта" />
+          <CSSTransition in={!mailError} timeout={200} classNames="form__error-animation" unmountOnExit={true} mountOnEnter={true}>
+            <span className={`form__input-error`}>{`Ошибка`}</span>
           </CSSTransition>
-          <input onChange={handleInputChange} value={phoneInput} className={`form__input ${phoneError !== '' ? 'form__input_error' : ''}`} type="tel" name="phone" minLength="3" placeholder="Телефон" />
-          <CSSTransition in={phoneError !== ''} timeout={1000} classNames="form__error-animation" unmountOnExit={true} mountOnEnter={true}>
-            <span className={`form__input-error`}>{phoneError}</span>
+          <input onChange={handleInputChange} value={phoneInput} minLength={11} maxLength={11} required className={`form__input ${phoneError ? '' : 'form__input_error'}`} type="tel" name="phone" placeholder="Телефон" pattern="7^\[0-9]{3}^\[0-9]{3}[0-9]{2}[0-9]{2}"/>
+          <CSSTransition in={!phoneError} timeout={200} classNames="form__error-animation" unmountOnExit={true} mountOnEnter={true}>
+            <span className={`form__input-error`}>{`Ошибка`}</span>
           </CSSTransition>
-          <textarea onChange={handleInputChange} value={poemsInput} className={`form__input ${poemsError !== '' ? 'form__input_error' : ''}`} form="form" name="poems" minLength="3" placeholder="Стихи" />
-          <CSSTransition in={poemsError !== ''} timeout={1000} classNames="form__error-animation" unmountOnExit={true} mountOnEnter={true}>
-            <span className={`form__input-error`}>{poemsError}</span>
+          <textarea onChange={handleInputChange} value={poemsInput} minLength={22} maxLength={1028} required className={`form__input ${poemsError ? '' : 'form__input_error'}`} form="form" name="poems" placeholder="Стихи" />
+          <CSSTransition in={!poemsError} timeout={200} classNames="form__error-animation" unmountOnExit={true} mountOnEnter={true}>
+            <span className={`form__input-error`}>{`Ошибка`}</span>
           </CSSTransition>
           <div className="form__offer-container">
             <input onChange={handleInputChange} checked={offerRadioInput} id="offer" name="offer" className={`form__offer`} type="checkbox"/>
             <label htmlFor="offer" className={`form__offer-label ${offerRadioInput ? 'form__offer_active' : ''}`} />
             <p className="form__offer-text">Согласен с <a className="form__offer-link" href="../images/oferta.pdf">офертой</a></p>
           </div>
+          <button type="submit" className={`form__submit ${isSubmitDisabled ? 'form__submit_disabled' : ''}`} disabled={isSubmitDisabled}>{ isFormSent ? 'Ура, форма отправлена!' : 'Отправить форму' }</button>
         </form>
-        <button className={`form__submit ${buttonsStatus ? 'form__submit_disabled' : ''}`} disabled={buttonsStatus} type="submit">Отправить</button>
-        <CSSTransition in={unknownError !== ''} timeout={1000} classNames="form__error-animation" unmountOnExit={true} mountOnEnter={true}>
-          <span className={`form__input-error`}>{nameError}</span>
-        </CSSTransition>
+        {/*<CSSTransition in={unknownError} timeout={200} classNames="form__error-animation" unmountOnExit={true} mountOnEnter={true}>*/}
+        {/*  <span className={`form__input-error`}>{`Ошибка`}</span>*/}
+        {/*</CSSTransition>*/}
       </div>
     </>
   )
