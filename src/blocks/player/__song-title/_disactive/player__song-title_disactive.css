@@ -1,0 +1,10 @@
+.player__song-title_disactive {
+
+    display: inline-block;
+    color: #ffffff;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 27px;
+    margin: 0;
+}

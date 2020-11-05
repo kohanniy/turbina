@@ -16,7 +16,7 @@
 }
 
 .header__link:first-of-type {
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 .header__link:hover {

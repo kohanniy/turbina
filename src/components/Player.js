@@ -49,6 +49,7 @@ const Player = function() {
 
   const handleSwitchClick = function(e) {
     setReleasesActive(!isReleasesActive);
+    checkWindowWidth();
   }
 
   React.useEffect(() => {
@@ -86,13 +87,55 @@ const Player = function() {
     target.style.background = `linear-gradient(to right, white 0%, white ${(target.value - target.min) / (target.max - target.min) * 100}%, rgba(255, 255, 255, .3) ${(target.value - target.min) / (target.max - target.min) * 100}%, rgba(255, 255, 255, .3) 100%)`
   }
 
+  const checkWindowWidth = function() {
+    const container = document.querySelector('.player__song-title');
+    const text = document.querySelector('.player__song-title_disactive');
+    const songsList = document.querySelectorAll('.song__title');
+    const songsContainer = document.querySelector('.songs__list');
+    if (container.offsetWidth <= text.offsetWidth) {
+      text.className = 'player__song-title_disactive player__song-title_active';
+    } else {
+      text.className = 'player__song-title_disactive'
+    }
+    songsList.forEach((song) => {
+      if (song.offsetWidth >= songsContainer.offsetWidth) {
+        song.className = 'song__title song__title_active'
+      } else {
+        song.className = 'song__title'
+      }
+    })
+  }
+
+  React.useEffect(() => {
+    const container = document.querySelector('.player__song-title');
+    const text = document.querySelector('.player__song-title_disactive');
+    const songsList = document.querySelectorAll('.song__title');
+    const songsContainer = document.querySelector('.songs__list');
+    if (container.offsetWidth <= text.offsetWidth) {
+      text.className = 'player__song-title_disactive player__song-title_active';
+    } else {
+      text.className = 'player__song-title_disactive';
+    }
+    songsList.forEach((song) => {
+      if (song.offsetWidth >= songsContainer.offsetWidth) {
+        song.className = 'song__title song__title_active'
+      } else {
+        song.className = 'song__title'
+      }
+    })
+  })
+
+  window.addEventListener('resize', checkWindowWidth);
+
   return (
     <>
       <div className={`player ${songsActive ? 'player__songs_active' : ''}`}>
         {playing ? <img onClick={handlePlayClick} className="player__play-button" src={pauseImage} alt="Пауза" /> :
           <img onClick={handlePlayClick} className="player__play-button" src={playImage} alt="Воспроизведение" />}
         <div className="player__info">
-          <p className="player__song-title">{currentSong.title}</p>
+          <div className="player__song-title">
+            <p className="player__song-title_disactive">{ currentSong.title }</p>
+          </div>
           <span className="player__time">{currentSeconds ? `${currentMinutes}:${currentSeconds}` : '00:00'}</span>
         </div>
         <input onInput={handleTimelineInput} onChange={handleTimelineChange} className="player__timeline" type="range"

@@ -4,5 +4,34 @@
   align-items: flex-end;
   visibility: visible;
   opacity: 1;
-  transition: visibility 0.3s linear, opacity 0.3s linear;
+  transform: scaleY(0);
+}
+
+.header__links-animation-enter-active {
+  animation: test .4s forwards;
+}
+
+.header__links-animation-enter-done {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.header__links-animation-exit-active {
+  animation: test .4s reverse;
+}
+
+.header__links-animation-exit-done {
+  opacity: 0;
+  transform: scaleY(0);
+}
+
+@keyframes test {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
 }

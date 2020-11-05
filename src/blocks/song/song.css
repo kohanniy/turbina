@@ -1,6 +1,7 @@
 @import url('./__title/song__title.css');
 @import url('./__text/song__text.css');
 @import url('./__string/song__string.css');
+@import url('./__title/_active/song__title_active.css');
 
 .song {
   margin-top: 15px;

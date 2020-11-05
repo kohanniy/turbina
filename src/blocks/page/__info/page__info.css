@@ -30,7 +30,7 @@
 
 @media screen and (max-width: 426px) {
   .page__info {
-    margin-top: 11px;
+    margin: 11px auto 0;
     width: 96%;
     padding: 80px 20px;
   }

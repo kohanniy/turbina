@@ -6,6 +6,8 @@
 @import url('./__timeline/player__timeline.css');
 @import url('./__song-title/player__song-title.css');
 @import url('./__switch-button/player__switch-button.css');
+@import url('./__song-title/_active/player__song-title_active.css');
+@import url('./__song-title/_disactive/player__song-title_disactive.css');
 
 .player {
   /* width: 100%; */

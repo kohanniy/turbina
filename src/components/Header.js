@@ -1,6 +1,7 @@
 import React from 'react';
 
 import logo from '../images/logo.svg';
+import { CSSTransition } from 'react-transition-group'
 
 const Header = function() {
   const [isLinksShow, setIsLinksShow] = React.useState(false);
@@ -31,12 +32,14 @@ const Header = function() {
         <button className={`header__dropdown-btn ${isButtonClick ? 'header__dropdown-btn_hide-links' : 'header__dropdown-btn_show-links'}`} onClick={handleDropDownBtnClick}>
           <span>Стриминги</span>
         </button>
-        <div className={`header__links ${(windowWidth > 426 || isLinksShow) ? '' : 'hide-block'}`} >
-          <a href="https://localhost:3000" className="header__link">Яндекс.Музыка ↗</a>
-          <a href="https://localhost:3000" className="header__link">Spotify ↗</a>
-          <a href="https://localhost:3000" className="header__link">Apple Music ↗</a>
-          <a href="https://localhost:3000" className="header__link">VK Music ↗</a>
-        </div>
+        <CSSTransition in={isButtonClick} timeout={400} classNames="header__links-animation" unmountOnExit={true} mountOnEnter={true}>
+          <div className={`header__links`} >
+            <a href="https://localhost:3000" className="header__link">Яндекс.Музыка ↗</a>
+            <a href="https://localhost:3000" className="header__link">Spotify ↗</a>
+            <a href="https://localhost:3000" className="header__link">Apple Music ↗</a>
+            <a href="https://localhost:3000" className="header__link">VK Music ↗</a>
+          </div>
+        </CSSTransition>
       </div>
     </div>
   );

@@ -1,5 +1,11 @@
 .songs__list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     margin: 0;
     padding: 0;
     list-style-type: none;
+    white-space: nowrap;
+    overflow: hidden;
+    align-self: flex-start;
 }
