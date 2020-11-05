@@ -7,3 +7,12 @@
     margin-bottom: 60px;
 
 }
+
+@media screen and (max-width: 320px) {
+  .form__description {
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+}

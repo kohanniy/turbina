@@ -1,7 +1,7 @@
 .form__submit {
   width: 100%;
   height: 60px;
-  margin-top: 84px;
+  margin-top: 43px;
   border: 2px solid #000000;
   background-color: white;
   box-sizing: border-box;
@@ -9,6 +9,12 @@
   outline: none;
   font-style: normal;
   font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .form__submit {
+    font-size: 15px;
+  }
 }
