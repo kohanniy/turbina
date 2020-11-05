@@ -20,7 +20,6 @@
 
 .player__switch-button:hover {
   cursor: pointer;
-  font-style: italic;
   opacity: .7;
 }
 
