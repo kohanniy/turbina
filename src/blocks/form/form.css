@@ -9,6 +9,11 @@
 @import url(./__offer-link/form__offer-link.css);
 @import url(./__offer-label/form__offer-label.css);
 @import url(./__description/form__description.css);
+@import url(./__offer/_active/form__offer_active.css);
+@import url(./__input-error/form__input-error.css);
+@import url(./__input-error/_active/form__input-error_active.css);
+@import url(./__submit/_disabled/form__submit_disabled.css);
+@import url(./__input/_error/form__input_error.css);
 
 .form {
   display: flex;

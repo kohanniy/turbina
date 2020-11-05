@@ -1,0 +1,33 @@
+.form__input-error {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FF0000;
+    margin-top: 5px;
+    transition: opacity 1s ease-in;
+}
+
+.form__error-animation-enter-active {
+    animation: test 1s forwards;
+}
+
+.form__error-animation-enter-done {
+}
+
+.form__error-animation-exit-active {
+    animation: test 1s reverse;
+}
+
+.form__error-animation-exit-done {
+    opacity: 0;
+}
+
+@keyframes test {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
