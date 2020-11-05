@@ -1,6 +1,5 @@
-.player__song-title_active {
-    padding-left: 50px;
-    animation: scroll 7s infinite linear;
+.song__title_active {
+    animation: scroll 12s infinite linear;
 }
 
 @keyframes scroll {
