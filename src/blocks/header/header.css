@@ -6,6 +6,8 @@
 @import url('./__dropdown-btn/header__dropdown-btn.css');
 @import url('./__dropdown-btn/_show-links/header__dropdown-btn_show-links.css');
 @import url('./__dropdown-btn/_hide-links/header__dropdown-btn_hide-links.css');
+@import url('./__links/_mobile/header__links_mobile.css');
+
 
 
 .header {

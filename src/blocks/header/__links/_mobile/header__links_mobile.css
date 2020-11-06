@@ -1,10 +1,9 @@
-.header__links {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+.header__links_mobile {
+  opacity: 0;
+  transform: scaleY(0);
 }
 
-/* .header__links-animation-enter-active {
+.header__links-animation-enter-active {
   animation: test .4s forwards;
 }
 
@@ -31,4 +30,4 @@
     opacity: 1;
     transform: scaleY(1);
   }
-} */
+}
