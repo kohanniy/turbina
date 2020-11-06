@@ -78,9 +78,6 @@ const Form = function() {
 
   return (
     <>
-      <p className="form__description">
-        Заполняя эту форму, вы становитесь частью проекта.
-      </p>
       <div className="form">
         <form className="form__container" onSubmit={handleSubmit}>
           <input onChange={handleInputChange} value={nameInput} minLength={2} maxLength={50} required className={`form__input ${nameError ? '' : 'form__input_error'}`} type="text" name="name" placeholder="Имя и фамилия автора" />

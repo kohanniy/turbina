@@ -5,10 +5,8 @@
 @import url(./__input/form__input.css);
 @import url(./__poems/form__poems.css);
 @import url(./__submit/form__submit.css);
-@import url(./__title/form__title.css);
 @import url(./__offer-link/form__offer-link.css);
 @import url(./__offer-label/form__offer-label.css);
-@import url(./__description/form__description.css);
 @import url(./__offer/_active/form__offer_active.css);
 @import url(./__input-error/form__input-error.css);
 @import url(./__input-error/_active/form__input-error_active.css);
@@ -19,7 +17,7 @@
   display: flex;
   flex-direction: column;
   width: 600px;
-  margin: 0;
+  margin-top: 60px;
   padding: 0;
   font-family: Inter, Helvetica, Arial, sans-serif;
   color: #000000;
@@ -28,5 +26,11 @@
 @media screen and (max-width: 768px) {
   .form {
     width: auto;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .form {
+    margin-top: 40px;
   }
 }
