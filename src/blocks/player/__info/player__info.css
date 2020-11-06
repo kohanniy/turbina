@@ -1,4 +1,5 @@
 .player__info {
+  width: 100%;
   grid-area: info;
   display: flex;
   justify-content: space-between;

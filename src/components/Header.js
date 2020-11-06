@@ -15,13 +15,17 @@ const Header = function() {
 
   const resizeWindow = function() {
     setWindowWidth(window.innerWidth);
+    if (windowWidth > 426 && isLinksShow) {
+      setIsLinksShow(!isLinksShow);
+      setIsButtonClick(!isButtonClick);
+    }
   };
 
   React.useEffect(() => {
     resizeWindow();
     window.addEventListener('resize', resizeWindow);
     return () => window.removeEventListener('resize', resizeWindow);
-  }, []);
+  });
 
   return (
     <div className="header">

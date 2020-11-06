@@ -11,7 +11,7 @@ import { CSSTransition } from 'react-transition-group';
 import Songs from './Songs'
 
 const songs = [{
-  title: 'Blood // Water - Grandson',
+  title: 'Blood // Water - Gandson',
   song: grandson,
   songText: 'We\'ll never get free\n Lamb to the slaughter\n What you gon\' do\n When there\'s blood in the water\n The price of your greed\n' +
     'Is your son and your daughter\n What you gon\' do\n When there\'s blood in the water\n \n Look me in my eyes\n' +

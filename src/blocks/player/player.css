@@ -10,7 +10,7 @@
 @import url('./__song-title/_disactive/player__song-title_disactive.css');
 
 .player {
-  /* width: 100%; */
+  width: 100%;
   box-sizing: border-box;
   padding: 0 10px;
   display: grid;

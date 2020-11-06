@@ -1,4 +1,4 @@
-.player__song-title_disactive {
+/* .player__song-title_disactive {
 
     display: inline-block;
     color: #ffffff;
@@ -7,4 +7,29 @@
     font-weight: 500;
     line-height: 27px;
     margin: 0;
+} */
+
+.player__song-title_disactive {
+  width: 100%;
+  margin: 0;
+  color: #ffffff;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 27px;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 1024px) {
+.player__song-title_disactive {
+  font-size: 18px;
+  line-height: 22px;
+}
+}
+
+@media screen and (max-width: 426px) {
+.player__song-title_disactive {
+  font-size: 14px;
+  line-height: 19px;
+}
 }
