@@ -2,6 +2,7 @@ import React from 'react';
 
 import logo from '../images/logo.svg';
 import { CSSTransition } from 'react-transition-group'
+import cn from 'classnames'
 
 const Header = function() {
   const [windowWidth, setWindowWidth] = React.useState(0);
@@ -34,7 +35,7 @@ const Header = function() {
       </a>
       {
         windowWidth > 426 ?
-          <div className={`header__links`} >
+          <div className="header__links">
             <a href="https://localhost:3000" className="header__link">Яндекс.Музыка ↗</a>
             <a href="https://localhost:3000" className="header__link">Spotify ↗</a>
             <a href="https://localhost:3000" className="header__link">Apple Music ↗</a>
@@ -42,11 +43,14 @@ const Header = function() {
           </div>
         :
           <div className="header__dropdown">
-            <button className={`header__dropdown-btn ${isButtonClick ? 'header__dropdown-btn_hide-links' : 'header__dropdown-btn_show-links'}`} onClick={handleDropDownBtnClick}>
+            <button className={cn("header__dropdown-btn", {
+              "header__dropdown-btn_hide-links": isButtonClick,
+              "header__dropdown-btn_show-links": !isButtonClick
+            })} onClick={handleDropDownBtnClick}>
               <span>Стриминги</span>
             </button>
             <CSSTransition in={isButtonClick} timeout={400} classNames="header__links-animation" unmountOnExit={true} mountOnEnter={true}>
-              <div className={`header__links header__links_mobile`} >
+              <div className="header__links header__links_mobile">
                 <a href="https://localhost:3000" className="header__link">Яндекс.Музыка ↗</a>
                 <a href="https://localhost:3000" className="header__link">Spotify ↗</a>
                 <a href="https://localhost:3000" className="header__link">Apple Music ↗</a>
