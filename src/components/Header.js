@@ -11,18 +11,21 @@ const Header = function() {
     setIsButtonClick(!isButtonClick);
   };
 
-  const resizeWindow = function() {
-    setWindowWidth(window.innerWidth);
-    if (windowWidth > 426 && isButtonClick) {
-      setIsButtonClick(!isButtonClick);
-    }
-  };
-
   React.useEffect(() => {
+    const resizeWindow = function() {
+      setWindowWidth(window.innerWidth);
+
+      if (windowWidth > 426 && isButtonClick) {
+        setIsButtonClick(!isButtonClick);
+      }
+    };
+
     resizeWindow();
+
     window.addEventListener('resize', resizeWindow);
+
     return () => window.removeEventListener('resize', resizeWindow);
-  });
+  }, [windowWidth, isButtonClick]);
 
   return (
     <div className="header">

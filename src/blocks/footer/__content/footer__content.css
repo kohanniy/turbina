@@ -1,4 +1,4 @@
-.footer__copyright {
+.footer__content {
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -7,19 +7,19 @@
   margin: 0;
 }
 
-.footer__copyright:nth-of-type(2) {
+.footer__content:nth-of-type(2) {
     justify-self: flex-end;
 }
 
 @media screen and (max-width: 1024px) {
-  .footer__copyright {
+  .footer__content {
     font-size: 15px;
   }
 }
 
 @media screen and (max-width: 426px) {
-  .footer__copyright,
-  .footer__copyright:nth-of-type(2) {
+  .footer__content,
+  .footer__content:nth-of-type(2) {
     justify-self: center;
     font-size: 12px;
   }
