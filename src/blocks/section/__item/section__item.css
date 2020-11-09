@@ -1,7 +1,3 @@
-.section__item {
-  list-style: none;
-}
-
 .section__item + .section__item {
   margin-top: 14px;
 }

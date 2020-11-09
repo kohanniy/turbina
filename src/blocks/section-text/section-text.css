@@ -1,0 +1,20 @@
+.section-text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+@media screen and (max-width: 1024px) {
+  .section-text {
+    font-size: 15px;
+    line-height: 22px;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .section-text {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
