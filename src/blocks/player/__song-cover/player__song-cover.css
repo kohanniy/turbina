@@ -1,0 +1,24 @@
+.player__song-cover {
+  grid-area: cover;
+  width: 176px;
+}
+
+@media screen and (max-width: 1024px) {
+  .player__song-cover {
+    width: 164px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .player__song-cover {
+    width: 112px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .player__song-cover {
+    width: 100%;
+  }
+}
+
+

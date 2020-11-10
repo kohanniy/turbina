@@ -1,35 +1,4 @@
 .player__song-title {
-  /* margin: 0 10px; */
-  width: 98%;
   overflow: hidden;
+  width: 100%;
 }
-
-
-
-
-/* .player__song-title {
-    margin: 0 10px;
-    width: 100%;
-    color: #ffffff;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 27px;
-    white-space: nowrap;
-    overflow: hidden;
-    align-self: flex-start;
-}
-
-@media screen and (max-width: 1024px) {
-  .player__song-title {
-    font-size: 18px;
-    line-height: 22px;
-  }
-}
-
-@media screen and (max-width: 426px) {
-  .player__song-title {
-    font-size: 14px;
-    line-height: 19px;
-  }
-} */

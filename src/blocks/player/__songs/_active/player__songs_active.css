@@ -1,14 +1,23 @@
 .player__songs_active {
   margin-top: 20px;
-  grid-template-columns: 18px 1fr 135px 24px;
-  grid-template-areas: 'play info switch more'
-                        '. timeline . .'
-                        '. songs songs .';
+  grid-template-columns: 176px 18px 1fr 135px 24px;
+  grid-template-areas: 'cover play info switch more'
+                        'cover . timeline . .'
+                        'cover . songs songs .';
 }
 
 @media screen and (max-width: 1024px) {
   .player__songs_active {
-    grid-template-columns: 18px 1fr 125px 24px;
+    grid-template-columns: 164px 18px 1fr 125px 24px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .player__songs_active {
+    grid-template-columns: 18px 112px 1fr 125px 24px;
+    grid-template-areas: 'play info info switch more'
+                        '. timeline timeline . .'
+                        '. cover songs . .';
   }
 }
 
@@ -18,6 +27,7 @@
     grid-template-columns: 16px 1fr 16px;
     grid-template-areas: 'play info more'
                          '. timeline .'
+                         '. cover .'
                          '. switch .'
                          '. songs .';
   }

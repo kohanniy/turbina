@@ -8,6 +8,8 @@
 @import url('./__switch-button/player__switch-button.css');
 @import url('./__song-title/_active/player__song-title_active.css');
 @import url('./__song-title/_disactive/player__song-title_disactive.css');
+@import url('./__song-cover/player__song-cover.css');
+@import url('./__clip-link/player__clip-link.css');
 
 .player {
   width: 100%;

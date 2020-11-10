@@ -3,6 +3,7 @@ import React from 'react';
 import logo from '../images/logo.svg';
 import { CSSTransition } from 'react-transition-group'
 import cn from 'classnames'
+import { data } from '../data/data'
 
 const Header = function() {
   const [windowWidth, setWindowWidth] = React.useState(0);
@@ -36,10 +37,9 @@ const Header = function() {
       {
         windowWidth > 426 ?
           <div className="header__links">
-            <a href="https://localhost:3000" className="header__link">Яндекс.Музыка ↗</a>
-            <a href="https://localhost:3000" className="header__link">Spotify ↗</a>
-            <a href="https://localhost:3000" className="header__link">Apple Music ↗</a>
-            <a href="https://localhost:3000" className="header__link">VK Music ↗</a>
+            {data.mainData.linksData.map(linkData =>
+              <a href={linkData.link} key={linkData.link} target="_blanc" className="header__link">{linkData.linkText}</a>
+            )}
           </div>
         :
           <div className="header__dropdown">
@@ -51,10 +51,9 @@ const Header = function() {
             </button>
             <CSSTransition in={isButtonClick} timeout={400} classNames="header__links-animation" unmountOnExit={true} mountOnEnter={true}>
               <div className="header__links header__links_mobile">
-                <a href="https://localhost:3000" className="header__link">Яндекс.Музыка ↗</a>
-                <a href="https://localhost:3000" className="header__link">Spotify ↗</a>
-                <a href="https://localhost:3000" className="header__link">Apple Music ↗</a>
-                <a href="https://localhost:3000" className="header__link">VK Music ↗</a>
+                {data.mainData.linksData.map((linkData) =>
+                  <a href={linkData.link} key={linkData.link} target="_blanc" className="header__link">{linkData.linkText}</a>
+                )}
               </div>
             </CSSTransition>
           </div>

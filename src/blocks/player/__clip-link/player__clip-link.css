@@ -1,0 +1,21 @@
+.player__clip-link {
+  width: 94px;
+  height: 35px;
+  background-color: #fff;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+  .player__clip-link {
+    width: 87px;
+    height: 34px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .player__clip-link {
+    width: 74px;
+    height: 31px;
+    margin-right: 5px;
+  }
+}
