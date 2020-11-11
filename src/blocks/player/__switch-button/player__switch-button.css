@@ -15,7 +15,6 @@
   border: 2px solid #FFFFFF;
   animation: buttonLoad .3s forwards linear;
   transition: all .2s ease-in;
-  transform: scaleX(0);
 }
 
 .player__switch-button:hover {
@@ -34,7 +33,8 @@
 
 @media screen and (max-width: 500px) {
   .player__switch-button {
-    width: 100%;
+    flex-grow: 1;
+    width: auto;
     height: 31px;
     font-size: 12px;
     line-height: 15px;

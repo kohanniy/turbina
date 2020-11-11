@@ -16,7 +16,7 @@
   }
 }
 
-@media screen and (max-width: 426px) {
+@media screen and (max-width: 500px) {
   .songs__type {
     font-size: 14px;
     line-height: 19px;

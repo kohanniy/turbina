@@ -19,7 +19,7 @@
   }
 }
 
-@media screen and (max-width: 426px) {
+@media screen and (max-width: 500px) {
   .song__title {
     font-size: 12px;
     line-height: 19px;

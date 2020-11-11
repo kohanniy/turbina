@@ -103,56 +103,111 @@ const Player = function() {
   }
 
   return (
-    <div className={`player ${songsActive ? 'player__songs_active' : ''}`}>
-      {isPlaying ?
-          <img onClick={handlePlayClick} className="player__play-button" src={pauseImage} alt="Пауза" />
-        :
-          <img onClick={handlePlayClick} className="player__play-button" src={playImage} alt="Воспроизведение" />}
-      <div className="player__info">
-        <div className="player__song-title">
-          <p className="player__song-title_disactive">{`${currentSong.title} — ${currentSong.originalAuthor} feat ${currentSong.author}`}</p>
+    currentSong.link ?
+      <div className={`player ${songsActive ? 'player__songs_active' : ''}`}>
+        {isPlaying ?
+            <img onClick={handlePlayClick} className="player__play-button" src={pauseImage} alt="Пауза" />
+          :
+            <img onClick={handlePlayClick} className="player__play-button" src={playImage} alt="Воспроизведение" />}
+        <div className="player__info">
+          <div className="player__song-title">
+            <p className="player__song-title_disactive">{`${currentSong.title} — ${currentSong.originalAuthor} feat ${currentSong.author}`}</p>
+          </div>
+          <span className="player__time">{convertSecToMin(duration - currentTime)}</span>
         </div>
-        <span className="player__time">{convertSecToMin(duration - currentTime)}</span>
-      </div>
-      <div className="player__timeline" onClick={handleTimeLineClick}>
-        <div className="player__timeline-bar" style={{width: `${currentTime / duration * 100}%`}} />
-      </div>
-      <audio
-        style={{display: 'none'}}
-        src={currentSong.song}
-        onTimeUpdate={onTimeUpdate}
-        ref={myPlayer}
-        onLoadedData={() => {
-          setDuration(myPlayer.current.duration);
-          isPlaying && myPlayer.current.play();
-        }}
-        onEnded={() => {
-          setIsPlaying(false);
-        }}
-      >
-        Ваш бразуер не поддерживает аудио
-      </audio>
-      <CSSTransition in={moreSectionOpened} timeout={200} classNames="player__switch" unmountOnExit={true} mountOnEnter={true}>
-        <img className="player__song-cover" src={currentSong.cover} alt="Обложка песни" />
-      </CSSTransition>
-      <CSSTransition in={moreSectionOpened} timeout={200} classNames="player__switch" unmountOnExit={true} mountOnEnter={true}>
-        <button onClick={handleSwitchClick} className="player__switch-button">{!isReleasesActive ? 'Текст песни' : 'Релизы'}</button>
-      </CSSTransition>
-      <img
-      alt="Подробнее"
-      src={moreSectionOpened ? closeMoreImage : moreImage}
-      className="player__more-button"
-      onClick={handleMoreClick}
-      />
-      <CSSTransition in={moreSectionOpened} timeout={200} classNames="songs-animation" unmountOnExit={true} mountOnEnter={true} onEnter={(e) => setSongsActive(true)} onExit={(e) => setSongsActive(false)}>
-        <Songs
-          onSongClick={onSongClick}
-          songs={initialSongs}
-          song={currentSong.text.split('\n')}
-          isReleasesActive={isReleasesActive}
+        <div className="player__timeline" onClick={handleTimeLineClick}>
+          <div className="player__timeline-bar" style={{width: `${currentTime / duration * 100}%`}} />
+        </div>
+        <audio
+          style={{display: 'none'}}
+          src={currentSong.song}
+          onTimeUpdate={onTimeUpdate}
+          ref={myPlayer}
+          onLoadedData={() => {
+            setDuration(myPlayer.current.duration);
+            isPlaying && myPlayer.current.play();
+          }}
+          onEnded={() => {
+            setIsPlaying(false);
+          }}
+        >
+          Ваш бразуер не поддерживает аудио
+        </audio>
+        <CSSTransition in={moreSectionOpened} timeout={200} classNames="player__switch" unmountOnExit={true} mountOnEnter={true}>
+          <img className="player__song-cover" src={currentSong.cover} alt="Обложка песни" />
+        </CSSTransition>
+        <CSSTransition in={moreSectionOpened} timeout={200} classNames="player__switch" unmountOnExit={true} mountOnEnter={true}>
+          <div className="player__buttons-wrapper">
+            <a href={currentSong.link} target="_blanc" className="player__clip-link">Клип</a>
+            <button onClick={handleSwitchClick} className="player__switch-button">{!isReleasesActive ? 'Текст песни' : 'Релизы'}</button>
+          </div>
+        </CSSTransition>
+        <img
+        alt="Подробнее"
+        src={moreSectionOpened ? closeMoreImage : moreImage}
+        className="player__more-button"
+        onClick={handleMoreClick}
         />
-      </CSSTransition>
-    </div>
+        <CSSTransition in={moreSectionOpened} timeout={200} classNames="songs-animation" unmountOnExit={true} mountOnEnter={true} onEnter={(e) => setSongsActive(true)} onExit={(e) => setSongsActive(false)}>
+          <Songs
+            onSongClick={onSongClick}
+            songs={initialSongs}
+            song={currentSong.text.split('\n')}
+            isReleasesActive={isReleasesActive}
+          />
+        </CSSTransition>
+      </div>
+    :
+      <div className={`player ${songsActive ? 'player__songs_active' : ''}`}>
+        {isPlaying ?
+            <img onClick={handlePlayClick} className="player__play-button" src={pauseImage} alt="Пауза" />
+          :
+            <img onClick={handlePlayClick} className="player__play-button" src={playImage} alt="Воспроизведение" />}
+        <div className="player__info">
+          <div className="player__song-title">
+            <p className="player__song-title_disactive">{`${currentSong.title} — ${currentSong.originalAuthor} feat ${currentSong.author}`}</p>
+          </div>
+          <span className="player__time">{convertSecToMin(duration - currentTime)}</span>
+        </div>
+        <div className="player__timeline" onClick={handleTimeLineClick}>
+          <div className="player__timeline-bar" style={{width: `${currentTime / duration * 100}%`}} />
+        </div>
+        <audio
+          style={{display: 'none'}}
+          src={currentSong.song}
+          onTimeUpdate={onTimeUpdate}
+          ref={myPlayer}
+          onLoadedData={() => {
+            setDuration(myPlayer.current.duration);
+            isPlaying && myPlayer.current.play();
+          }}
+          onEnded={() => {
+            setIsPlaying(false);
+          }}
+        >
+          Ваш бразуер не поддерживает аудио
+        </audio>
+        <CSSTransition in={moreSectionOpened} timeout={200} classNames="player__switch" unmountOnExit={true} mountOnEnter={true}>
+          <img className="player__song-cover" src={currentSong.cover} alt="Обложка песни" />
+        </CSSTransition>
+        <CSSTransition in={moreSectionOpened} timeout={200} classNames="player__switch" unmountOnExit={true} mountOnEnter={true}>
+          <button onClick={handleSwitchClick} className="player__switch-button">{!isReleasesActive ? 'Текст песни' : 'Релизы'}</button>
+        </CSSTransition>
+        <img
+        alt="Подробнее"
+        src={moreSectionOpened ? closeMoreImage : moreImage}
+        className="player__more-button"
+        onClick={handleMoreClick}
+        />
+        <CSSTransition in={moreSectionOpened} timeout={200} classNames="songs-animation" unmountOnExit={true} mountOnEnter={true} onEnter={(e) => setSongsActive(true)} onExit={(e) => setSongsActive(false)}>
+          <Songs
+            onSongClick={onSongClick}
+            songs={initialSongs}
+            song={currentSong.text.split('\n')}
+            isReleasesActive={isReleasesActive}
+          />
+        </CSSTransition>
+      </div>
   );
 }
 

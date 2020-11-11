@@ -20,27 +20,45 @@ const Songs = function({ songs, song, isReleasesActive, onSongClick }) {
   }
 
   return (
-    <div className={`songs`}>
-      {!isReleasesActive ?
-        <div className="songs__wrapper">
-          <p className="songs__type">Релизы:</p>
-          <ul className="songs__list">
-            {songs.map(song =>
-              <Song onSongClick={onSongClick} songData={song} key={song.id.toString()} />
-            )}
-          </ul>
+    songs.length <= 1 ?
+        <div className="songs">
+          {!isReleasesActive ?
+            <div className="songs__wrapper">
+              <p className="song__title">Пока что у нас только 1 релиз.</p>
+            </div>
+          :
+            <div className="songs__wrapper">
+              <p className="songs__type">Текст песни:</p>
+              <ul className="song__text">
+                {
+                  createSongList()
+                }
+              </ul>
+            </div>
+          }
         </div>
-        :
-        <div className="songs__wrapper">
-          <p className="songs__type">Текст песни:</p>
-          <ul className="song__text">
-            {
-              createSongList()
+      :
+        <div className="songs">
+          {!isReleasesActive ?
+              <div className="songs__wrapper">
+                <p className="songs__type">Релизы:</p>
+                <ul className="songs__list">
+                  {songs.map(song =>
+                    <Song onSongClick={onSongClick} songData={song} key={song.id.toString()} />
+                  )}
+                </ul>
+              </div>
+            :
+              <div className="songs__wrapper">
+                <p className="songs__type">Текст песни:</p>
+                <ul className="song__text">
+                  {
+                    createSongList()
+                  }
+                </ul>
+              </div>
             }
-          </ul>
-        </div>
-      }
-    </div>
+          </div>
   )
 }
 

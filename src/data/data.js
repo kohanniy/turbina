@@ -127,4 +127,4 @@ export const initialSongs = [{
   'Мы любовь\n',
   link: 'https://www.youtube.com/watch?v=dnx89KStOjA',
   cover: cover4
-},];
+}];

@@ -1,0 +1,33 @@
+.player__buttons-wrapper {
+  width: 100%;
+  grid-area: switch;
+  display: flex;
+}
+
+.player__switch-enter-active {
+  animation: test1 .2s forwards;
+}
+
+.player__switch-enter-done {
+  transform: scaleX(1);
+}
+
+.player__switch-exit-active {
+  display: none;
+}
+
+.player__switch-exit-done {
+  transform: scaleX(0);
+  opacity: 0;
+}
+
+@keyframes test1 {
+  0% {
+      opacity: 0;
+      transform: scaleX(0);
+  }
+  100% {
+      opacity: 1;
+      transform: scaleX(1);
+  }
+}

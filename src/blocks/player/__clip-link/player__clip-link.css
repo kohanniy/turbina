@@ -1,14 +1,35 @@
 .player__clip-link {
+  display: flex;
+  align-items: center;
+  padding-left: 34px;
+  margin-right: 10px;
   width: 94px;
   height: 35px;
-  background-color: #fff;
-  margin-right: 10px;
+  background: #fff url(../../../images/clip.png) 13px center no-repeat;
+  background-size: 19px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  border-radius: 30px;
+  box-sizing: border-box;
+  transition: all .2s ease-in;
+}
+
+.player__clip-link:hover {
+  opacity: 0.7;
 }
 
 @media screen and (max-width: 1024px) {
   .player__clip-link {
     width: 87px;
     height: 34px;
+    font-size: 15px;
+    line-height: 18px;
+    padding-left: 32px;
+    background-size: 18px;
+    background-position: 12px center;
   }
 }
 
@@ -16,6 +37,15 @@
   .player__clip-link {
     width: 74px;
     height: 31px;
+    font-size: 12px;
+    line-height: 15px;
+    padding-left: 26px;
+    background-size: 15px;
+    background-position: 10px center;
+    margin-top: 12px;
+    margin-bottom: 7px;
     margin-right: 5px;
   }
 }
+
+
