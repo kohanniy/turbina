@@ -13,7 +13,7 @@ import { CSSTransition } from 'react-transition-group';
 import Songs from './Songs'
 
 
-const Player = function() {
+const Player = function({ handleMoreButtonClick, isSongsListOpen }) {
   //Audio
   const [ currentSong, setCurrentSong ] = React.useState(initialSongs[0]);
   const [ currentTime, setCurrentTime ] = React.useState(0);
@@ -21,7 +21,6 @@ const Player = function() {
   const [ isPlaying, setIsPlaying ] = React.useState(false);
 
   // Player.js
-  const [moreSectionOpened, openMoreSection] = React.useState(false);
   const [songsActive, setSongsActive] = React.useState(false);
   const [isReleasesActive, setReleasesActive] = React.useState(false);
 
@@ -98,10 +97,6 @@ const Player = function() {
     checkWindowWidth();
   }
 
-  const handleMoreClick = function(e) {
-    openMoreSection(!moreSectionOpened);
-  }
-
   return (
     currentSong.link ?
       <div className={`player ${songsActive ? 'player__songs_active' : ''}`}>
@@ -133,10 +128,10 @@ const Player = function() {
         >
           Ваш бразуер не поддерживает аудио
         </audio>
-        <CSSTransition in={moreSectionOpened} timeout={200} classNames="player__switch" unmountOnExit={true} mountOnEnter={true}>
+        <CSSTransition in={isSongsListOpen} timeout={200} classNames="player__switch" unmountOnExit={true} mountOnEnter={true}>
           <img className="player__song-cover" src={currentSong.cover} alt="Обложка песни" />
         </CSSTransition>
-        <CSSTransition in={moreSectionOpened} timeout={200} classNames="player__switch" unmountOnExit={true} mountOnEnter={true}>
+        <CSSTransition in={isSongsListOpen} timeout={200} classNames="player__switch" unmountOnExit={true} mountOnEnter={true}>
           <div className="player__buttons-wrapper">
             <a href={currentSong.link} target="_blanc" className="player__clip-link">Клип</a>
             <button onClick={handleSwitchClick} className="player__switch-button">{!isReleasesActive ? 'Текст песни' : 'Релизы'}</button>
@@ -144,11 +139,11 @@ const Player = function() {
         </CSSTransition>
         <img
         alt="Подробнее"
-        src={moreSectionOpened ? closeMoreImage : moreImage}
+        src={isSongsListOpen ? closeMoreImage : moreImage}
         className="player__more-button"
-        onClick={handleMoreClick}
+        onClick={handleMoreButtonClick}
         />
-        <CSSTransition in={moreSectionOpened} timeout={200} classNames="songs-animation" unmountOnExit={true} mountOnEnter={true} onEnter={(e) => setSongsActive(true)} onExit={(e) => setSongsActive(false)}>
+        <CSSTransition in={isSongsListOpen} timeout={200} classNames="songs-animation" unmountOnExit={true} mountOnEnter={true} onEnter={(e) => setSongsActive(true)} onExit={(e) => setSongsActive(false)}>
           <Songs
             onSongClick={onSongClick}
             songs={initialSongs}
@@ -187,19 +182,19 @@ const Player = function() {
         >
           Ваш бразуер не поддерживает аудио
         </audio>
-        <CSSTransition in={moreSectionOpened} timeout={200} classNames="player__switch" unmountOnExit={true} mountOnEnter={true}>
+        <CSSTransition in={isSongsListOpen} timeout={200} classNames="player__switch" unmountOnExit={true} mountOnEnter={true}>
           <img className="player__song-cover" src={currentSong.cover} alt="Обложка песни" />
         </CSSTransition>
-        <CSSTransition in={moreSectionOpened} timeout={200} classNames="player__switch" unmountOnExit={true} mountOnEnter={true}>
+        <CSSTransition in={isSongsListOpen} timeout={200} classNames="player__switch" unmountOnExit={true} mountOnEnter={true}>
           <button onClick={handleSwitchClick} className="player__switch-button">{!isReleasesActive ? 'Текст песни' : 'Релизы'}</button>
         </CSSTransition>
         <img
         alt="Подробнее"
-        src={moreSectionOpened ? closeMoreImage : moreImage}
+        src={isSongsListOpen ? closeMoreImage : moreImage}
         className="player__more-button"
-        onClick={handleMoreClick}
+        onClick={handleMoreButtonClick}
         />
-        <CSSTransition in={moreSectionOpened} timeout={200} classNames="songs-animation" unmountOnExit={true} mountOnEnter={true} onEnter={(e) => setSongsActive(true)} onExit={(e) => setSongsActive(false)}>
+        <CSSTransition in={isSongsListOpen} timeout={200} classNames="songs-animation" unmountOnExit={true} mountOnEnter={true} onEnter={(e) => setSongsActive(true)} onExit={(e) => setSongsActive(false)}>
           <Songs
             onSongClick={onSongClick}
             songs={initialSongs}

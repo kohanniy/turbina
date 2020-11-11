@@ -14,11 +14,14 @@
 @import url('./__buttons-wrapper/player__buttons-wrapper.css');
 
 .player {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
   width: 100%;
   box-sizing: border-box;
-  padding: 0 10px;
+  padding: 0 25px;
   display: grid;
-  margin-top: 210px;
+  /* margin-top: 210px; */
   grid-column-gap: 20px;
   grid-row-gap: 10px;
   grid-template-columns: 20px 1fr 24px;
@@ -31,25 +34,24 @@
 
 @media screen and (max-width: 1024px) {
   .player {
-    margin-top: 182px;
+    /* margin-top: 182px; */
     grid-template-columns: 18px 1fr 24px;
     grid-row-gap: 8px;
   }
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .player {
     margin-top: 353px;
   }
-}
+} */
 
 @media screen and (max-width: 426px) {
   .player {
-    margin-top: 249px;
+    /* margin-top: 249px; */
     grid-template-columns: 16px 1fr 16px;
     grid-column-gap: 11px;
     grid-row-gap: 9px;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0 14px;
   }
 }

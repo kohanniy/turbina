@@ -4,22 +4,27 @@
     margin-top: 98px;
     display: flex;
     justify-content: center;
+
+    margin-bottom: 245px;
 }
 
 @media screen and (max-width: 1024px) {
   .text {
     margin-top: 75px;
+    margin-bottom: 215px;
   }
 }
 
 @media screen and (max-width: 768px) {
   .text {
     margin-top: 244px;
+    margin-bottom: 386px;
   }
 }
 
 @media screen and (max-width: 426px) {
   .text {
     margin-top: 265px;
+    margin-bottom: 289px;
   }
 }

@@ -1,22 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './components/App';
 import './index.css';
-import SectionsWrapper from './components/SectionsWrapper';
-
-import Header from './components/Header';
-import MainText from './components/MainText';
-import Player from './components/Player'
-import Footer from './components/Footer'
 
 ReactDOM.render(
-  <>
-    <div className="page__main">
-      <Header />
-      <MainText />
-      <Player />
-    </div>
-    <SectionsWrapper />
-    <Footer />
-  </>,
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
   document.getElementById('root')
 );

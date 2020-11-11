@@ -5,32 +5,9 @@ import { CSSTransition } from 'react-transition-group'
 import cn from 'classnames'
 import { data } from '../data/data'
 
-const Header = function() {
-  const [windowWidth, setWindowWidth] = React.useState(0);
-  const [isButtonClick, setIsButtonClick] = React.useState(false);
-
-  const handleDropDownBtnClick = function() {
-    setIsButtonClick(!isButtonClick);
-  };
-
-  React.useEffect(() => {
-    const resizeWindow = function() {
-      setWindowWidth(window.innerWidth);
-
-      if (windowWidth > 426 && isButtonClick) {
-        setIsButtonClick(!isButtonClick);
-      }
-    };
-
-    resizeWindow();
-
-    window.addEventListener('resize', resizeWindow);
-
-    return () => window.removeEventListener('resize', resizeWindow);
-  }, [windowWidth, isButtonClick]);
-
+const Header = function({ windowWidth, isButtonClick, handleDropDownBtnClick, isSongsListOpen }) {
   return (
-    <div className="header">
+    <div className={`header ${windowWidth <= 426 && isSongsListOpen && 'blur'}`}>
       <a href="https://localhost:3000" className="header__logo-link">
         <img src={logo} alt="Логотип" className="header__logo"/>
       </a>
