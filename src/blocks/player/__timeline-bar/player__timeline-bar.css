@@ -1,0 +1,7 @@
+.player__timeline-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background-color: #fff;
+}

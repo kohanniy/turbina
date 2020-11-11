@@ -10,6 +10,7 @@
 @import url('./__song-title/_disactive/player__song-title_disactive.css');
 @import url('./__song-cover/player__song-cover.css');
 @import url('./__clip-link/player__clip-link.css');
+@import url('./__timeline-bar/player__timeline-bar.css');
 
 .player {
   width: 100%;

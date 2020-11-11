@@ -21,7 +21,7 @@ const Songs = function({ songs, song, isReleasesActive, onSongClick }) {
 
   return (
     <div className={`songs`}>
-      {isReleasesActive ?
+      {!isReleasesActive ?
         <div className="songs__wrapper">
           <p className="songs__type">Релизы:</p>
           <ul className="songs__list">

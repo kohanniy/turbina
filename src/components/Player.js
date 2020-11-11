@@ -4,98 +4,53 @@ import playImage from '../images/Play.svg'
 import pauseImage from '../images/Pause.svg'
 import moreImage from '../images/more.svg'
 import closeMoreImage from '../images/closemore.svg'
+import { initialSongs } from '../data/data'
+import throttling from '../utils/throttling'
+import convertSecToMin from '../utils/convertSecToMin'
 
-// import grandson from '../music.mp3'
 import { CSSTransition } from 'react-transition-group';
 
 import Songs from './Songs'
-import { initialSongs } from '../data/data'
 
-// const songs = [{
-//   title: 'Blood // Water - Gandson',
-//   song: grandson,
-//   songText: 'We\'ll never get free\n Lamb to the slaughter\n What you gon\' do\n When there\'s blood in the water\n The price of your greed\n' +
-//     'Is your son and your daughter\n What you gon\' do\n When there\'s blood in the water\n \n Look me in my eyes\n' +
-//     'Tell me everything\'s not fine\n Or the people ain\'t happy\n And the river has run dry\n You thought you could go free\n' +
-//     'But the system is done for\n If you listen here closely\n There\'s a knock at your front door\n \n We\'ll never get free\n' +
-//     'Lamb to the slaughter\n What you gon\' do\n When there\'s blood in the water\n The price of your greed\n Is your son and your daughter\n' +
-//     'What you gon\' do\n When there\'s blood in the water\n When there\'s blood in the\n When there\'s blood in the\n' +
-//     '\n Beg me for mercy\n Admit you were toxic\n You poisoned me just for\n Another dollar in your pocket\n Now I am the violence\n' +
-//     'I am the sickness\n Won\'t accept your silence\n Beg me for forgiveness\n \n We\'ll never get free\n Lamb to the slaughter\n' +
-//     'What you gon\' do\n When there\'s blood in the water\n The price of your greed\n Is your son and your daughter\n' +
-//     'What you gon\' do\n When there\'s blood in the water\n When there\'s blood in the water\n When there\'s blood in the\n' +
-//     '\n I am the people\n I am the storm\n I am the riot\n I am the swarm\n When the last tree\'s fallen\n The animal can\'t hide\n' +
-//     'Money won\'t solve it\n What\'s your alibi?\n What\'s your alibi?\n What\'s your alibi?\n' +
-//     '\n What you gon\' do when there\'s blood in the, blood in the water?\n When there\'s blood in the water\n' +
-//     'When there\'s blood in the\n When there\'s blood in the water\n'
-// }, {}]
 
 const Player = function() {
-  // Audio
-  const [audioFile, setAudioFile] = React.useState(new Audio (initialSongs[0].song));
-  const [playing, setPlaying] = React.useState(false);
-  const [currentMinutes, setCurrentMinutes] = React.useState(0);
-  const [currentSeconds, setCurrentSeconds] = React.useState(0);
-  const [currentSong, setCurrentSong] = React.useState(initialSongs[0]);
-
+  //Audio
+  const [ currentSong, setCurrentSong ] = React.useState(initialSongs[0]);
+  const [ currentTime, setCurrentTime ] = React.useState(0);
+  const [ duration, setDuration ] = React.useState(0);
+  const [ isPlaying, setIsPlaying ] = React.useState(false);
 
   // Player.js
   const [moreSectionOpened, openMoreSection] = React.useState(false);
   const [songsActive, setSongsActive] = React.useState(false);
   const [isReleasesActive, setReleasesActive] = React.useState(false);
 
+  const myPlayer = React.useRef(null);
 
-  const handleMoreClick = function(e) {
-    openMoreSection(!moreSectionOpened);
-  }
-
-  const handleSwitchClick = function(e) {
-    setReleasesActive(!isReleasesActive);
-    checkWindowWidth();
-  }
-
-  const handleSongClick = function(songData) {
-    if(currentSong.id !== songData.id) {
-      setCurrentSong(songData);
-      setAudioFile();
-    }
-  }
-
-  React.useEffect(() => {
-    audioFile.addEventListener('timeupdate', handleSongTimeUpdate);
-  }   );
-
+  const onTimeUpdate = throttling((e) => {
+    setCurrentTime(e.target.currentTime);
+  }, 1000);
 
   const handlePlayClick = function(e) {
-    if (playing) {
-      audioFile.pause();
-      setPlaying(false);
+    if (isPlaying) {
+      myPlayer.current.pause();
+      setIsPlaying(false);
     } else {
-      audioFile.play();
-      setPlaying(true);
+      myPlayer.current.play();
+      setIsPlaying(true);
     }
   }
 
-  const handleSongTimeUpdate = function(e) {
-    const minutes = Math.floor(audioFile.currentTime / 60);
-    const seconds = Math.floor(audioFile.currentTime % 60);
-
-    minutes < 10 ? setCurrentMinutes(`0${minutes}`) : setCurrentMinutes(minutes);
-    seconds < 10 ? setCurrentSeconds(`0${seconds}`) : setCurrentSeconds(seconds);
-    changeProgressFill(document.querySelector('.player__timeline'));
+  const onSongClick = function(songData) {
+    setCurrentSong(songData);
   }
 
-  const handleTimelineChange = function(e) {
-    audioFile.currentTime = e.target.value
-  }
-
-  const handleTimelineInput = function(e) {
-    changeProgressFill(e.target)
-    console.log(e.target);
-  }
-
-  const changeProgressFill = function(target) {
-    target.style.background = `linear-gradient(to right, white 0%, white ${(target.value - target.min) / (target.max - target.min) * 100}%, rgba(255, 255, 255, .3) ${(target.value - target.min) / (target.max - target.min) * 100}%, rgba(255, 255, 255, .3) 100%)`
+  const handleTimeLineClick = function(e) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const percentage = x / rect.width * 100;
+    const timeToGo = duration / 100 * percentage;
+    myPlayer.current.currentTime = timeToGo;
   }
 
   const checkWindowWidth = function() {
@@ -138,33 +93,67 @@ const Player = function() {
 
   window.addEventListener('resize', checkWindowWidth);
 
+  const handleSwitchClick = function(e) {
+    setReleasesActive(!isReleasesActive);
+    checkWindowWidth();
+  }
+
+  const handleMoreClick = function(e) {
+    openMoreSection(!moreSectionOpened);
+  }
+
   return (
-    <>
-      <div className={`player ${songsActive ? 'player__songs_active' : ''}`}>
-        {playing ? <img onClick={handlePlayClick} className="player__play-button" src={pauseImage} alt="Пауза" /> :
+    <div className={`player ${songsActive ? 'player__songs_active' : ''}`}>
+      {isPlaying ?
+          <img onClick={handlePlayClick} className="player__play-button" src={pauseImage} alt="Пауза" />
+        :
           <img onClick={handlePlayClick} className="player__play-button" src={playImage} alt="Воспроизведение" />}
-        <div className="player__info">
-          <div className="player__song-title">
-            <p className="player__song-title_disactive">{`${currentSong.title} — ${currentSong.originalAuthor} feat ${currentSong.author}`}</p>
-          </div>
-          <span className="player__time">{currentSeconds ? `${currentMinutes}:${currentSeconds}` : '00:00'}</span>
+      <div className="player__info">
+        <div className="player__song-title">
+          <p className="player__song-title_disactive">{`${currentSong.title} — ${currentSong.originalAuthor} feat ${currentSong.author}`}</p>
         </div>
-        <input onInput={handleTimelineInput} onChange={handleTimelineChange} className="player__timeline" type="range"
-               name="time" min="0" max={Math.floor(audioFile.duration).toString()} value={audioFile.currentTime} />
-        <CSSTransition in={moreSectionOpened} timeout={200} classNames="player__switch" unmountOnExit={true} mountOnEnter={true}>
-          <img className="player__song-cover" src={currentSong.cover} alt="Обложка песни" />
-        </CSSTransition>
-        <CSSTransition in={moreSectionOpened} timeout={200} classNames="player__switch" unmountOnExit={true} mountOnEnter={true}>
-          <button onClick={handleSwitchClick} className="player__switch-button">{isReleasesActive ? 'Текст песни' : 'Релизы'}</button>
-        </CSSTransition>
-        <img alt="Подробнее" src={moreSectionOpened ? closeMoreImage : moreImage} className="player__more-button"
-             onClick={handleMoreClick} />
-        <CSSTransition in={moreSectionOpened} timeout={200} classNames="songs-animation" unmountOnExit={true} mountOnEnter={true} onEnter={(e) => setSongsActive(true)} onExit={(e) => setSongsActive(false)}>
-          <Songs onSongClick={handleSongClick} songs={initialSongs} song={currentSong.text.split('\n')} isReleasesActive={isReleasesActive} />
-        </CSSTransition>
+        <span className="player__time">{convertSecToMin(duration - currentTime)}</span>
       </div>
-    </>
-  )
+      <div className="player__timeline" onClick={handleTimeLineClick}>
+        <div className="player__timeline-bar" style={{width: `${currentTime / duration * 100}%`}} />
+      </div>
+      <audio
+        style={{display: 'none'}}
+        src={currentSong.song}
+        onTimeUpdate={onTimeUpdate}
+        ref={myPlayer}
+        onLoadedData={() => {
+          setDuration(myPlayer.current.duration);
+          isPlaying && myPlayer.current.play();
+        }}
+        onEnded={() => {
+          setIsPlaying(false);
+        }}
+      >
+        Ваш бразуер не поддерживает аудио
+      </audio>
+      <CSSTransition in={moreSectionOpened} timeout={200} classNames="player__switch" unmountOnExit={true} mountOnEnter={true}>
+        <img className="player__song-cover" src={currentSong.cover} alt="Обложка песни" />
+      </CSSTransition>
+      <CSSTransition in={moreSectionOpened} timeout={200} classNames="player__switch" unmountOnExit={true} mountOnEnter={true}>
+        <button onClick={handleSwitchClick} className="player__switch-button">{!isReleasesActive ? 'Текст песни' : 'Релизы'}</button>
+      </CSSTransition>
+      <img
+      alt="Подробнее"
+      src={moreSectionOpened ? closeMoreImage : moreImage}
+      className="player__more-button"
+      onClick={handleMoreClick}
+      />
+      <CSSTransition in={moreSectionOpened} timeout={200} classNames="songs-animation" unmountOnExit={true} mountOnEnter={true} onEnter={(e) => setSongsActive(true)} onExit={(e) => setSongsActive(false)}>
+        <Songs
+          onSongClick={onSongClick}
+          songs={initialSongs}
+          song={currentSong.text.split('\n')}
+          isReleasesActive={isReleasesActive}
+        />
+      </CSSTransition>
+    </div>
+  );
 }
 
 export default Player
