@@ -17,4 +17,4 @@
 
 **Страница проекта на GitHub Pages**
 
-* [Турбина]()
+* [Турбина](https://kohanniy.github.io/turbina/)
